@@ -5,19 +5,20 @@ function SchoolPage(){
 const [schoolList, setschoolList] = useState([]);    
 
 useEffect(() => {
-    fetch("http://localhost:3000/schools")
+    fetch("/schools")
     .then((r) => r.json())
     .then((schools) => setschoolList(schools));
 }, []);
     return(
-        <div>
+        <div className="schoolPage">
             <HomeBanner/>
-            {schoolList.map((school)=>{
-                 <div>
-                    <img src={school.image_url} alt={school.name}/>
+            {schoolList.map((school)=>(
+                 <div className="collegeContainers">
+                    <img src={school.image_url} alt={school.name} />
+                {console.log('ive been fetched')}
                 </div>
-            })}
-            <schoolList/>
+            ))}
+            {/* <schoolList/> */}
         </div>
     )
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import HomePage from './HomePage';
 import SchoolPage from './SchoolPage';
@@ -12,7 +11,7 @@ function App(){
     <Route path="/" element={<HomePage />}/>
       </Routes> */}
       <SchoolPage/>
-      <HomePage />
+      {/* <HomePage /> */}
       </div>
   )
 }
