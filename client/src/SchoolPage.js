@@ -1,5 +1,6 @@
 import {React, useEffect, useState} from "react";
 import HomeBanner from "./HomeBanner";
+import BottomBorder from "./BottomBorder";
 
 function SchoolPage(){
 const [schoolList, setschoolList] = useState([]);    
@@ -19,6 +20,7 @@ useEffect(() => {
                 </div>
             ))}
             {/* <schoolList/> */}
+            <BottomBorder/>
         </div>
     )
 }

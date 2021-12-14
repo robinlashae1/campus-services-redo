@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App(){
   return(
-    <div>
+    <div className='App'>
       {/* <Routes>
     <Route path="/" element={<HomePage />}/>
       </Routes> */}

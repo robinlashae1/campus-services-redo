@@ -11,7 +11,7 @@ function HomeBanner(){
             <h2>About</h2>
             <h2>Find Your College</h2>
         </div>
-        <div id="homepagebody"/>  
+        <div id="TopBorder"/>  
         </div>
         )
 }
