@@ -13,13 +13,12 @@ useEffect(() => {
     return(
         <div className="schoolPage">
             <HomeBanner/>
-            {schoolList.map((school)=>(
+            {schoolList.map(school=>(
                  <div className="collegeContainers">
                     <img src={school.image_url} alt={school.name} />
                 {console.log('ive been fetched')}
                 </div>
-            ))}
-            {/* <schoolList/> */}
+                ))}
             <BottomBorder/>
         </div>
     )

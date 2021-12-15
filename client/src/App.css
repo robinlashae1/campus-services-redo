@@ -60,3 +60,11 @@ background-color: rgb(255, 246, 235);
   height: 150px;
   width: 100%;
 }
+.navLinks:hover{
+  text-decoration: underline;
+ color: rgb(0, 0, 0);
+ background-color: rgb(177, 168, 157)
+}
+#findCollege{
+  width: "140px"
+}

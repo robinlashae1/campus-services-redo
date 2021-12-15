@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 function HomeBanner(){
     return(
@@ -6,11 +7,7 @@ function HomeBanner(){
         <div id="title-banner">
             <h1>Campus Finder</h1>
         </div>
-        <div id="topBanner">
-            <h2>Home</h2>
-            <h2>About</h2>
-            <h2>Find Your College</h2>
-        </div>
+        <NavBar/>
         <div id="TopBorder"/>  
         </div>
         )

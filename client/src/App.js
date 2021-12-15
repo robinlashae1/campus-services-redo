@@ -1,18 +1,21 @@
 import './App.css';
 import HomePage from './HomePage';
 import SchoolPage from './SchoolPage';
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
+import { Route, Switch, BrowserRouter} from "react-router-dom";
 function App(){
   return(
     <div className='App'>
-      {/* <Routes>
-    <Route path="/" element={<HomePage />}/>
-      </Routes> */}
-      <SchoolPage/>
-      {/* <HomePage /> */}
-      </div>
+      <BrowserRouter>
+      <Switch>
+          <Route exact path="/" >
+            <HomePage/>
+          </Route>
+          <Route exact path="/allSchools" >
+            <SchoolPage/>
+          </Route>
+      </Switch>
+      </BrowserRouter>
+    </div>
   )
 }
 
