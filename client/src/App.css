@@ -11,9 +11,10 @@
 }
 
 #TopBorder{
-  height: 150px;
+  height: 120px;
   width: 100%;
   color: white;
+  padding-top: 10px;
   padding-bottom: 10px;
   background-image: url("https://media.wired.com/photos/5d8aab8bef84070009028d31/master/pass/Plant-Music-1162975190.jpg")
 }
@@ -67,4 +68,15 @@ background-color: rgb(255, 246, 235);
 }
 #findCollege{
   width: "140px"
+}
+.title{
+  color: rgb(255, 255, 255);
+  font-size: 70px;
+  padding: -50px 0;
+  line-height: 20px;
+  padding-left: 50px;
+  text-align: center;
+}
+.testDiv{
+  height: 600px;
 }

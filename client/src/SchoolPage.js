@@ -1,21 +1,15 @@
-import {React, useEffect, useState} from "react";
+import {React} from "react";
 import HomeBanner from "./HomeBanner";
 import BottomBorder from "./BottomBorder";
 
-function SchoolPage(){
-const [schoolList, setschoolList] = useState([]);    
+function SchoolPage({schoolList}){
 
-useEffect(() => {
-    fetch("/schools")
-    .then((r) => r.json())
-    .then((schools) => setschoolList(schools));
-}, []);
     return(
         <div className="schoolPage">
-            <HomeBanner/>
+            <HomeBanner title="ALL SCHOOLS"/>
             {schoolList.map(school=>(
                  <div className="collegeContainers">
-                    <img src={school.image_url} alt={school.name} />
+                   <a href={`http://localhost:4000/schools/${school.name}`}><img src={school.image_url} alt={school.name} key={school.id}/></a>
                 {console.log('ive been fetched')}
                 </div>
                 ))}

@@ -6,6 +6,10 @@ class SchoolsController < ApplicationController
         school = @current_user.school.create!(school_params)
         render json: school, status: :created
     end
+    def show
+        school = find_school
+        render json: school
+    end
     def destroy
         school = find_school
         school.destroy
@@ -16,6 +20,6 @@ class SchoolsController < ApplicationController
         params.permit(:name,:city,:state,:image_url)
     end
     def find_school
-        School.find_by(params:[:id])
+        School.find_by(id: params[:id])
     end
 end

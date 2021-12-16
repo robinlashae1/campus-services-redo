@@ -5,8 +5,9 @@ import BottomBorder from "./BottomBorder";
  function HomePage(){
     return(
         <div className="homepage">
-            <HomeBanner/>
+            <HomeBanner title="HOME"/>
             <p className="text-muted">Find What you Need, Whereever You are</p>
+            <div className="testDiv"/>
             <BottomBorder/>
         </div>
     )

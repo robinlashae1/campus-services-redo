@@ -23,7 +23,7 @@ function NavBar() {
           About
         </NavLink>
         <NavLink className="navLinks"
-          to="/allSchools"
+          to="/schools"
           exact
           style={linkStyles}
         >
