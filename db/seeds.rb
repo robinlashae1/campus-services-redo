@@ -7,9 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 School.destroy_all
 User.destroy_all
+Service.destroy_all
 User.reset_pk_sequence
 School.reset_pk_sequence
+Service.reset_pk_sequence
 
+Service.create(name:"Photographers")
+Service.create(name:"Hair Stylist")
+Service.create(name:"Nail Tech")
+Service.create(name:"Makeup Artist")
+Service.create(name:"Waxing Tech")
+Service.create(name:"Lashes Tech")
+Service.create(name:"Esthetician")
+puts "We have services"
 School.create(name:"Alabama A&M University",city:"Normal",state:"Alabama",image_url:"https://dbukjj6eu5tsf.cloudfront.net/sidearm.sites/aamusports.com/responsive_2019/images/svgs/footer_logo_aamu-new.png",is_hbcu: true)
 School.create(name:"Alabama State University",city:"Montgomery",state:"Alabama",image_url:"https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Alabama_State_Hornets_logo.svg/1200px-Alabama_State_Hornets_logo.svg.png",is_hbcu: true)
 School.create(name:"Benedict College",city:"Columbia",state:"South Carolina",image_url:"http://cdn.shopify.com/s/files/1/0105/4251/4223/collections/legacy-history-pride-benedict.jpg",is_hbcu: true)

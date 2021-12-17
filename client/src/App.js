@@ -9,6 +9,7 @@ import About from './About';
 function App(){
 
   const [schoolList, setschoolList] = useState([]);
+  const [servicesList, setServicesList]= useState([]);
   const schoolName = schoolList.map(school=>(school.name))
   console.log(schoolName)
 
@@ -16,6 +17,12 @@ useEffect(() => {
     fetch("/schools")
     .then((r) => r.json())
     .then((schools) => setschoolList(schools))
+}, []);
+
+useEffect(() => {
+  fetch("/services")
+  .then((r) => r.json())
+  .then((services) => setServicesList(services))
 }, []);
 
   return(
@@ -32,7 +39,7 @@ useEffect(() => {
             <SchoolPage schoolList={schoolList} schoolName={schoolList}/>
           </Route>
           <Route exact path={`/schools/:schoolName`} >
-            <SchoolServicesPage schoolList={schoolList}/>
+            <SchoolServicesPage schoolList={schoolList} servicesList={servicesList}/>
           </Route>
       </Switch>
       </BrowserRouter>
