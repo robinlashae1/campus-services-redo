@@ -6,7 +6,9 @@ import BottomBorder from "./BottomBorder";
     return(
         <div className="homepage">
             <HomeBanner title="HOME"/>
-            <p className="text-muted">Find What you Need, Whereever You are</p>
+             <h1 className="homeSlogan">Whatever you need,</h1>
+             <h1 className="homeSlogan">Wherever You are!</h1>
+            <p className=" homeSlogan">Let us help connect you to the people you're looking for</p>
             <div className="testDiv"/>
             <BottomBorder/>
         </div>

@@ -1,11 +1,12 @@
 .App {
   text-align: center;
-  background-color: rgb(255, 246, 235)
+  background-color: #dfdecd;
+  margin: 0;
 }
 .homepage{
   text-align: center;
   padding: 0%;
-  margin: 0%;
+  margin: 0;
   height: 100%;
   width: 100%;
 }
@@ -17,7 +18,12 @@
 }
 #title-banner{
   height: 70px;
-  margin-top: -25px;
+  color: black;
+  font-size: 25px;
+  font-family: fantasy;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 3px;
 }
 #TopBorder{
   height: 120px;
@@ -35,7 +41,7 @@
 .navLinks:hover{
   text-decoration: underline;
  color: rgb(0, 0, 0);
- background-color: rgb(177, 168, 157)
+ background-color: #ECB984;
 }
 .collegeContainers{
   max-height:180px;
@@ -58,11 +64,14 @@
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 .schoolPage{
-background-color: rgb(255, 246, 235);
+background-color:#dfdecd;
 }
-
-
-
+.Login{
+  margin-left:70%;
+  width:20%;
+  margin-top: -120px;
+  padding-bottom: 3px;
+}
 #findCollege{
   width: "140px"
 }
@@ -75,9 +84,20 @@ background-color: rgb(255, 246, 235);
   text-align: center;
 }
 .services{
-  height: 150px;
-  color: #000;
+  height: 350px;
+  color: rgb(255, 255, 255);
   margin-top: 10px;
+  width: 32%;
+  margin-left: 15px;
+  float: left;
+  text-align: left;
+  font-size: 40px;
+  text-indent: 5px;
+  background-position: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  background-size: contain;
+  background-size: cover;
 }
 #Photographers{
   background-image: url("https://www.adorama.com/alc/wp-content/uploads/2017/07/photographer-working-studio-feature.jpg");
@@ -92,22 +112,122 @@ div[id='Makeup Artist']{
   background-image: url("https://eyethebrows.com/wp-content/uploads/2019/12/women-color-permanent-makeup.jpg");
 }
 div[id='Waxing Tech']{
-  background-image: url("https://www.essence.com/wp-content/uploads/2019/11/GettyImages-1031403932-1200x800.jpg");
+  background-image: url("https://www.byrdie.com/thmb/rq0Ms2qWZFkc0oQ_Cgwnw2twnF8=/1155x1294/filters:fill(auto,1)/waxing-a80d1cd17c3340e4ba139c19a92cfe77.jpg");
 }
 div[id='Lashes Tech']{
-  background-image: url("https://i.pinimg.com/originals/07/1c/23/071c2331a11c13a9e8f934225fb84575.jpg");
+  background-image: url("https://static.wixstatic.com/media/11062b_a2db0bdc4ce740fbaa81fba01ff2f47b~mv2_d_3000_2000_s_2.jpg/v1/fill/w_640,h_480,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01/11062b_a2db0bdc4ce740fbaa81fba01ff2f47b~mv2_d_3000_2000_s_2.webp");
 }
 div[id='Esthetician']{
   background-image: url("https://thumbs.dreamstime.com/b/young-african-american-lady-getting-facial-treatment-spa-therapist-applying-clay-mask-woman-face-side-view-young-african-186278935.jpg");
 }
+div[id='Other']{
+  background-image: url("https://thumbs.dreamstime.com/b/young-african-american-lady-getting-facial-treatment-spa-therapist-applying-clay-mask-woman-face-side-view-young-african-186278935.jpg");
+}
 .testDiv{
-  height: 600px;
+  height: 1100px;
 }
 .gapDiv{
-  height: 90px;
+  height: 50px;
 }
 #bottomBorder{
   background-image: url("https://i0.wp.com/blackbraziltoday.com/wp-content/uploads/2020/02/bailarinas-faustao-dia-da-consciencia-negra-1-.jpeg?resize=678%2C381&ssl=1");
   height: 150px;
   width: 100%;
+  position: relative;
+}
+.profileForm {
+  background-color: rgb(161, 63, 63);
+  list-style-type: none;
+  padding: 0;
+  border-radius: 3px;
+  right: 0px;
+  width: 50%;
+  position: absolute;
+  margin-right: 25px;
+  height: 250px;
+  font-size: 20px;
+}
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+.form-row > label {
+  padding: .5em 1em .5em 0;
+  flex: 1;
+}
+.form-row > input {
+  flex: 2;
+}
+.form-row > input,
+.form-row > button {
+  padding: .5em;
+}
+.form-row > button {
+ background: gray;
+ color: white;
+ border: 0;
+}
+@media screen and (min-width: 768px) {
+   .form-row > input {
+    flex: 3;  
+ }
+}
+@media screen and (min-width: 992px) {
+   .form-row > input {
+    flex: 4;  
+ }
+}
+@media screen and (min-width: 1200px) {
+   .form-row > input {
+    flex: 5;  
+ }
+}
+#profileDiv{
+background-color: blue;
+height: 550px;
+width: 45%;
+float:left;
+margin: 20px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+}
+
+.search-bar .MuiTextField-root {
+  width: 100%;
+}
+
+.search-bar .MuiInput-underline:before {
+  border: none;
+  border-color: blue;
+}
+
+@media (min-width: 600px) {
+  .search-bar {
+    margin: 0 27em;
+    padding: 0 2em;
+    border-radius: 25px 25px 25px 25px;
+    margin-top: 0.5%;
+  }
+}
+
+.search-icon {
+  padding-top: 1.2%;
+  padding-right: 1%;
+  align-items: right;
+}
+.profilePic{
+  border-radius: 50%;
+  background-color: brown;
+  margin-left:70%;
+  width:10%;
+  margin-top: -120px;
+  padding-bottom: 3px;
+}
+.homeSlogan{
+  right: 40px;
+  text-align: left;
 }

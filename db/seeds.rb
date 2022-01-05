@@ -11,15 +11,21 @@ Service.destroy_all
 User.reset_pk_sequence
 School.reset_pk_sequence
 Service.reset_pk_sequence
+puts "starting"
+Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",is_tech:true)
+Will = User.create(name:"Will", username:"will",password:"will",password_confirmation:"will", is_tech:false)
+puts "have users"
 
-Service.create(name:"Photographers")
+Service.create!(name:"Photographers")
 Service.create(name:"Hair Stylist")
 Service.create(name:"Nail Tech")
 Service.create(name:"Makeup Artist")
 Service.create(name:"Waxing Tech")
 Service.create(name:"Lashes Tech")
 Service.create(name:"Esthetician")
+Service.create(name:"Other")
 puts "We have services"
+
 School.create(name:"Alabama A&M University",city:"Normal",state:"Alabama",image_url:"https://dbukjj6eu5tsf.cloudfront.net/sidearm.sites/aamusports.com/responsive_2019/images/svgs/footer_logo_aamu-new.png",is_hbcu: true)
 School.create(name:"Alabama State University",city:"Montgomery",state:"Alabama",image_url:"https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Alabama_State_Hornets_logo.svg/1200px-Alabama_State_Hornets_logo.svg.png",is_hbcu: true)
 School.create(name:"Benedict College",city:"Columbia",state:"South Carolina",image_url:"http://cdn.shopify.com/s/files/1/0105/4251/4223/collections/legacy-history-pride-benedict.jpg",is_hbcu: true)
@@ -46,6 +52,9 @@ School.create(name:"Tennessee State University",city:"Nashville",state:"Tennesse
 School.create(name:"Tuskegee University",city:"Tuskegee",state:"Alabama",image_url:"https://png.pngitem.com/pimgs/s/466-4668349_tuskegee-university-logo-hd-png-download.png",is_hbcu: true)
 School.create(name:"Virginia State University",city:"Petersburg",state:"Virginia",image_url:"https://d28htnjz2elwuj.cloudfront.net/wp-content/uploads/2019/05/07160559/Virginia-State-University.jpg",is_hbcu: true)
 School.create(name:"Xavier University of Louisiana",city:"New Orleans",state:"Louisiana",image_url:"https://logos-download.com/wp-content/uploads/2016/12/Xavier_University_logo_logotype.png",is_hbcu: true)
+puts "We have hbcu"
+School.create(name:"Loyola University Maryland",city:"Baltimore",state:"Maryland",image_url:"https://www.loyola.edu/-/media/about/brand/guidelines/logo-rules/lum_primary_gold_tn.png",is_hbcu: false)
+School.create(name:"Barnard College",city:"New York",state:"New York",image_url:"https://upload.wikimedia.org/wikipedia/commons/b/b7/Barnard_Logo.jpg",is_hbcu: false)
 # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
 # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
 # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
@@ -53,7 +62,5 @@ School.create(name:"Xavier University of Louisiana",city:"New Orleans",state:"Lo
 # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
 # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
 # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-puts "We have schools"
+puts "We have pwi"
 puts "Done seeding"

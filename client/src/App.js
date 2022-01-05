@@ -5,30 +5,52 @@ import SchoolPage from './SchoolPage';
 import SchoolServicesPage from './SchoolServicesPage';
 import { Route, Switch, BrowserRouter} from "react-router-dom";
 import About from './About';
+import Rescue from './Rescue';
+import Login from './Login';
+import NavBar from './NavBar';
+import TechProfilePage from './TechProfilePage';
+import AllTechsPage from './AllTechsPage';
+import PersonalProfilePage from './PersonalProfilePage';
+// /schools/:schoolName
 
 function App(){
-
-  const [schoolList, setschoolList] = useState([]);
+  const [user, setUser]= useState(null);
   const [servicesList, setServicesList]= useState([]);
-  const schoolName = schoolList.map(school=>(school.name))
-  console.log(schoolName)
+  const [userServiceList, setUserServiceList] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-useEffect(() => {
-    fetch("/schools")
-    .then((r) => r.json())
-    .then((schools) => setschoolList(schools))
-}, []);
+    useEffect(() => {
+        fetch("/user_services")
+        .then((r) => r.json())
+        .then((userService) => setUserServiceList(userService))
+      }, []);
 
-useEffect(() => {
-  fetch("/services")
-  .then((r) => r.json())
-  .then((services) => setServicesList(services))
-}, []);
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
+    useEffect(() => {
+        fetch("/services")
+        .then((r) => r.json())
+        .then((services) => setServicesList(services))
+      }, []);
+
+      
+      // ()
+//
   return(
     <div className='App'>
       <BrowserRouter>
+      <NavBar user={user} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
       <Switch>
+         <Route exact path="/login" >
+            <Login user={user} onLogin={setUser} setUsername={setUsername} username={username} password={password} setPassword={setPassword}/>
+          </Route>
           <Route exact path="/" >
             <HomePage />
           </Route>
@@ -36,15 +58,28 @@ useEffect(() => {
             <About/>
           </Route>
           <Route exact path="/schools" >
-            <SchoolPage schoolList={schoolList} schoolName={schoolList}/>
+            <SchoolPage />
           </Route>
           <Route exact path={`/schools/:schoolName`} >
-            <SchoolServicesPage schoolList={schoolList} servicesList={servicesList}/>
+            <SchoolServicesPage servicesList={servicesList}/>
+          </Route>
+          <Route exact path= '/schools/:schoolName/:serviceName'>
+            <AllTechsPage />
+          </Route>
+          <Route exact path="/techProfilePage" >
+            <TechProfilePage userServiceList={userServiceList}/>
+          </Route>
+          <Route exact path='/myProfile'>
+            <PersonalProfilePage userServiceList={userServiceList} setUsername={setUsername} user={user}/>
           </Route>
       </Switch>
       </BrowserRouter>
     </div>
-  )
-}
+  )}
+  // else {
+  //   return(
+  //   <Rescue/>
+  //   )}
+// }
 
 export default App;

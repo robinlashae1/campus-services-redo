@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 resources :schools, only: [:index, :destroy, :create, :show]
 resources :users
 resources :services, only: [:index, :create, :show]
+resources :user_services
 post "/signup", to: "users#create"
 get "/me", to: "users#show"
+patch "/fixMe", to: "user#update"
 post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"
 get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
