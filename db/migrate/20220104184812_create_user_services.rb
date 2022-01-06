@@ -6,6 +6,7 @@ class CreateUserServices < ActiveRecord::Migration[6.1]
       t.integer :price
       t.integer :user_id
       t.integer :service_id
+      t.integer :school_id
       t.timestamps
     end
   end

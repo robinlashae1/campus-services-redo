@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React} from "react";
 import Form from "react-bootstrap/Form";
 
 function Login({onLogin,username,password,setPassword,setUsername,user}) {
@@ -17,17 +17,16 @@ function Login({onLogin,username,password,setPassword,setUsername,user}) {
         .then((user) => onLogin(user));
     }
    
-    function validateForm() {
-      return username.length > 0 && password.length > 0;
-    }
-    if (user){
-      return(
-        <a href="/myProfile">
-        <div className="profilePic">"notLogged"</div>
-        </a>
-        )
-    } else {
+    // function validateForm() {
+    //   return username.length > 0 && password.length > 0;
+    // }
     return(
+    user ?
+        <a href="/myProfile">
+        <div className="profileFile">
+        <div className="profilePic"></div>
+        </div>
+        </a>:
     <div className="Login">
         <Form onSubmit={handleSubmit}>
             <Form.Group size="lg" controlId="username">
@@ -50,5 +49,5 @@ function Login({onLogin,username,password,setPassword,setUsername,user}) {
       </Form>
       </div> 
     )  
-  }}
+  }
   export default Login

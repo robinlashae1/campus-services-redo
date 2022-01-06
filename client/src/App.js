@@ -11,6 +11,7 @@ import NavBar from './NavBar';
 import TechProfilePage from './TechProfilePage';
 import AllTechsPage from './AllTechsPage';
 import PersonalProfilePage from './PersonalProfilePage';
+import TechServicePage from './TechServicePage';
 // /schools/:schoolName
 
 function App(){
@@ -64,22 +65,23 @@ function App(){
             <SchoolServicesPage servicesList={servicesList}/>
           </Route>
           <Route exact path= '/schools/:schoolName/:serviceName'>
-            <AllTechsPage />
+            <AllTechsPage servicesList={userServiceList}/>
           </Route>
-          <Route exact path="/techProfilePage" >
+          <Route exact path="/:userName" >
             <TechProfilePage userServiceList={userServiceList}/>
+          </Route>
+          <Route exact path="/:userName/:serviceName">
+            <TechServicePage/>
           </Route>
           <Route exact path='/myProfile'>
             <PersonalProfilePage userServiceList={userServiceList} setUsername={setUsername} user={user}/>
+          </Route>
+          <Route exact path="/rescue">
+            <Rescue/>
           </Route>
       </Switch>
       </BrowserRouter>
     </div>
   )}
-  // else {
-  //   return(
-  //   <Rescue/>
-  //   )}
-// }
 
 export default App;

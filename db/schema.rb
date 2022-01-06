@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_184812) do
     t.integer "price"
     t.integer "user_id"
     t.integer "service_id"
+    t.integer "school_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

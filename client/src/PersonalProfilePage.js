@@ -1,5 +1,6 @@
 import React from "react";
-import Login from "./Login";
+import NavBar from "./NavBar";
+import HomeBanner from "./HomeBanner";
 
 function PersonalProfilePage({userServiceList,username,password,setPassword,setUsername,updateUser,user}) {
     function handleSubmit(e) {
@@ -16,23 +17,24 @@ function PersonalProfilePage({userServiceList,username,password,setPassword,setU
       }
     return (
         <>
+        <HomeBanner title="My Profile"/>
         <div id="profileDiv">
           {/* <h2>{user.name}</h2>
           <h3>{user.description}</h3> */}
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
   <ul class="profileForm">
     <li class="form-row">
       <label for="name">Name</label>
-      <input type="text" id="name"/>
+      <input type="text" />
     </li>
     <li class="form-row">
       <label for="username">Username</label>
-      <input type="text" id="townborn"/>
+      <input type="text" />
     </li>
     <li class="form-row">
       <label for="description">Description</label>
-      <input type="description" id="email"/>
+      <input type="description"/>
     </li>
     <li class="form-row">
       <button type="submit">Submit</button>

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 resources :schools, only: [:index, :destroy, :create, :show]
 resources :users
 resources :services, only: [:index, :create, :show]
-resources :user_services
+resources :user_services do
+  resources :schools, only: [:show, :index]
+  resources :users, only: [:show, :index]
+end
 post "/signup", to: "users#create"
 get "/me", to: "users#show"
 patch "/fixMe", to: "user#update"

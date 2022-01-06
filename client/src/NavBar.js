@@ -43,7 +43,7 @@ function NavBar({setPassword,setUsername,user, setUser,onLogin,username,password
           Find Your College
         </NavLink>
         <div className="Login">
-          <Login onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
+          <Login user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
         </div>
       </div>
     );
@@ -54,7 +54,7 @@ function NavBar({setPassword,setUsername,user, setUser,onLogin,username,password
         display: "inline-block",
         width: "160px",
         padding: "12px",
-        margin: "0 6px 6px",
+        margin: "-10px 6px 12px",
         textDecoration:"none",
         color: "black",
       };

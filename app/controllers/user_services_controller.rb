@@ -8,7 +8,7 @@ class UserServicesController < ApplicationController
     end
     def show
         service = find_uService
-        render json: service
+        render json: service, include: ['school', 'service', 'user']
     end
     def destroy
         service = find_uService
