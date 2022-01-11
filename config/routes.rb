@@ -9,7 +9,7 @@ resources :user_services do
 end
 post "/signup", to: "users#create"
 get "/me", to: "users#show"
-patch "/fixMe", to: "user#update"
+patch "/fixMe", to: "users#update"
 post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"
 get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

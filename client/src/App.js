@@ -67,14 +67,14 @@ function App(){
           <Route exact path= '/schools/:schoolName/:serviceName'>
             <AllTechsPage servicesList={userServiceList}/>
           </Route>
-          <Route exact path="/:userName" >
+          <Route exact path="/techs/:userName" >
             <TechProfilePage userServiceList={userServiceList}/>
           </Route>
           <Route exact path="/:userName/:serviceName">
             <TechServicePage/>
           </Route>
           <Route exact path='/myProfile'>
-            <PersonalProfilePage userServiceList={userServiceList} setUsername={setUsername} user={user}/>
+            <PersonalProfilePage userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser}/>
           </Route>
           <Route exact path="/rescue">
             <Rescue/>

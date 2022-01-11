@@ -22,7 +22,7 @@ function Login({onLogin,username,password,setPassword,setUsername,user}) {
     // }
     return(
     user ?
-        <a href="/myProfile">
+        <a href="http://localhost:4000/myProfile">
         <div className="profileFile">
         <div className="profilePic"></div>
         </div>
