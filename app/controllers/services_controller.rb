@@ -8,7 +8,7 @@ class ServicesController < ApplicationController
     end
     def show
         service = find_service
-        render json: service
+        render json: service, include: ['service_category']
     end
     private
     def service_params

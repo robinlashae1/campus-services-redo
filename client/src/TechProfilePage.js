@@ -1,13 +1,13 @@
-import {React,useEffect, useState} from "react";
+import {React, useState} from "react";
 import { useParams } from "react-router-dom"
 import BottomBorder from "./BottomBorder";
 import HomeBanner from "./HomeBanner";
 import SearchBar from "material-ui-search-bar";
 
 function TechProfilePage({userServiceList}) {
-    const [serviceList, setServiceList] = useState([]);
+    // const [serviceList, setServiceList] = useState([]);
     const [searchFilter, setSearchFilter] = useState(userServiceList);
-    const {userName,} = useParams();
+    const {userName} = useParams();
 
     const filterByUser = userServiceList.filter(service=>(
         service.user.name === userName
@@ -22,7 +22,7 @@ function TechProfilePage({userServiceList}) {
 
     return ( 
         <div>
-            <HomeBanner title={userName}/>
+            <HomeBanner title={userName} />
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
             <div className="testDiv">
             <div id="techProfileSpace"/>

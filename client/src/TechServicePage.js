@@ -8,7 +8,8 @@ function TechServicePage() {
     return (
         <>
             <HomeBanner/>
-            <>service</>
+            {userName}
+            {serviceName}
             <BottomBorder/>
         </>
      );

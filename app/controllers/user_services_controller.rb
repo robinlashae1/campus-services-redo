@@ -3,7 +3,7 @@ class UserServicesController < ApplicationController
         render json: UserService.all
     end
     def create
-        service = user_service.create!(uService_params)
+        service = @current_user.user_service.create!(uService_params)
         render json: service, status: :created
     end
     def show
@@ -17,7 +17,7 @@ class UserServicesController < ApplicationController
     end
     private
     def uService_params
-        params.permit(:name,:description,:price,:user_id,:school_id,:images)
+        params.permit(:name,:description,:price,:service_category_id,:user_id,:school_id,:images)
     end
     def find_uService
         UserServices.find_by(id: params[:id])

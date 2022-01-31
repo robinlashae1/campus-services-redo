@@ -5,7 +5,7 @@ function BottomBorder(){
         <div>
             <div id="bottomBorder"/>
             <div>
-            <p id="patientWarning">Dont see your school? Just be patient, we're growing everyday!</p>
+            <p id="patientWarning">Don't see your school? Just be patient, we're growing everyday!</p>
             </div>
         </div>
     )

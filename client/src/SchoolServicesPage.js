@@ -12,7 +12,7 @@ function SchoolServicesPage({servicesList}){
         <HomeBanner title={`${schoolName}`}/>
         <div className="testDiv">
         {servicesList.map((service)=>(
-            //to all tech page 
+            //to service category page 
             <a href={`http://localhost:4000/schools/${schoolName}/${service.name}`}><div className="services"id={`${service.name}`}>{service.name}</div ></a>
         ))}
         

@@ -8,11 +8,15 @@
 School.destroy_all
 User.destroy_all
 Service.destroy_all
+ServiceCategory.destroy_all
+ServiceCategory.destroy_all
+User.reset_pk_sequence
 User.reset_pk_sequence
 School.reset_pk_sequence
 Service.reset_pk_sequence
+UserService.reset_pk_sequence
 puts "starting"
-Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",is_tech:true)
+Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",description:"hi im robin",is_tech:true)
 Will = User.create(name:"Will", username:"will",password:"will",password_confirmation:"will", is_tech:false)
 Hope = User.create!(name:"Hope Johnson", username:"Hope",password:"Hope",password_confirmation:"Hope",is_tech:true)
 Ara = User.create!(name:"Ara Vernon", username:"Ara",password:"Ara",password_confirmation:"Ara",is_tech:true)
@@ -36,9 +40,88 @@ Waxing_Tech=Service.create(name:"Waxing Tech")
 Lashes_Tech=Service.create(name:"Lashes Tech")
 Esthetician=Service.create(name:"Esthetician")
 Barber=Service.create(name:"Barber")
+Artist=Service.create(name:"Artist")
 Other=Service.create(name:"Other")
 puts "We have services"
+Sports=ServiceCategory.create(name:"Sports", service_id:Photographers.id)
+Portrait=ServiceCategory.create(name:"Portrait", service_id:Photographers.id)
+EventPhotography=ServiceCategory.create(name:"Event Photography", service_id:Photographers.id)
+Modeling=ServiceCategory.create(name:"Modeling", service_id:Photographers.id)
+Video=ServiceCategory.create(name:"Video", service_id:Photographers.id)
+BuisnessServices=ServiceCategory.create(name:"Buisness Services", service_id:Photographers.id)
+PEvent=ServiceCategory.create(name:"Groups", service_id:Photographers.id)
+PClasses=ServiceCategory.create(name:"Classes", service_id:Photographers.id)
+POther=ServiceCategory.create(name:"Other", service_id:Photographers.id)
 
+HNatural=ServiceCategory.create(name:"Natural", service_id:Hair_Stylist.id)
+Braids=ServiceCategory.create(name:"Braids", service_id:Hair_Stylist.id)
+SewIn=ServiceCategory.create(name:"Sew In", service_id:Hair_Stylist.id)
+Closures=ServiceCategory.create(name:"Closures", service_id:Hair_Stylist.id)
+Locs=ServiceCategory.create(name:"Locs", service_id:Hair_Stylist.id)
+HEvent=ServiceCategory.create(name:"Groups", service_id:Hair_Stylist.id)
+HClasses=ServiceCategory.create(name:"Classes", service_id:Hair_Stylist.id)
+HOther=ServiceCategory.create(name:"Other", service_id:Hair_Stylist.id)
+
+Manicure=ServiceCategory.create(name:"Manicures", service_id:Nail_Tech.id)
+Pedicure=ServiceCategory.create(name:"Pedicures", service_id:Nail_Tech.id)
+ManiPedi=ServiceCategory.create(name:"ManiPedis", service_id:Nail_Tech.id)
+NEvent=ServiceCategory.create(name:"Groups", service_id:Nail_Tech.id)
+NClasses=ServiceCategory.create(name:"Classes", service_id:Nail_Tech.id)
+NOther=ServiceCategory.create(name:"Other", service_id:Nail_Tech.id)
+
+MNatural=ServiceCategory.create(name:"Natural", service_id:Makeup_Artist.id)
+FullFace=ServiceCategory.create(name:"Full Face", service_id:Makeup_Artist.id)
+Mini=ServiceCategory.create(name:"Mini Beat", service_id:Makeup_Artist.id)
+MEvent=ServiceCategory.create(name:"Groups", service_id:Makeup_Artist.id)
+MClasses=ServiceCategory.create(name:"Classes", service_id:Makeup_Artist.id)
+MOther=ServiceCategory.create(name:"Other", service_id:Makeup_Artist.id)
+
+Bikini=ServiceCategory.create(name:"Bikini", service_id:Waxing_Tech.id)
+Brows=ServiceCategory.create(name:"EyeBrows", service_id:Waxing_Tech.id)
+Legs=ServiceCategory.create(name:"Legs", service_id:Waxing_Tech.id)
+Brazillian=ServiceCategory.create(name:"Brazillian", service_id:Waxing_Tech.id)
+FullBody=ServiceCategory.create(name:"Full Body", service_id:Waxing_Tech.id)
+Vajacial=ServiceCategory.create(name:"Vajacial", service_id:Waxing_Tech.id)
+WEvent=ServiceCategory.create(name:"Groups", service_id:Waxing_Tech.id)
+WClasses=ServiceCategory.create(name:"Classes", service_id:Waxing_Tech.id)
+WOther=ServiceCategory.create(name:"Other", service_id:Waxing_Tech.id)
+
+Short=ServiceCategory.create(name:"Short", service_id:Lashes_Tech.id)
+Medium=ServiceCategory.create(name:"Medium", service_id:Lashes_Tech.id)
+Long=ServiceCategory.create(name:"Long", service_id:Lashes_Tech.id)
+FreeStyle=ServiceCategory.create(name:"FreeStyle", service_id:Lashes_Tech.id)
+LEvent=ServiceCategory.create(name:"Groups", service_id:Lashes_Tech.id)
+LClasses=ServiceCategory.create(name:"Classes", service_id:Lashes_Tech.id)
+LOther=ServiceCategory.create(name:"Other", service_id:Lashes_Tech.id)
+
+Facial=ServiceCategory.create(name:"Facials", service_id:Esthetician.id)
+AcneFacial=ServiceCategory.create(name:"Acne facial", service_id:Esthetician.id)
+Microdermabrasion=ServiceCategory.create(name:"Microdermabrasion", service_id:Esthetician.id)
+ChemicalPeels=ServiceCategory.create(name:"Chemical Peels", service_id:Esthetician.id)
+Tinting=ServiceCategory.create(name:"Tinting", service_id:Esthetician.id)
+EEvent=ServiceCategory.create(name:"Groups", service_id:Esthetician.id)
+EClasses=ServiceCategory.create(name:"Classes", service_id:Esthetician.id)
+EOther=ServiceCategory.create(name:"Other", service_id:Esthetician.id)
+
+Beard=ServiceCategory.create(name:"Beard", service_id:Barber.id)
+Maintenance=ServiceCategory.create(name:"Maintenance", service_id:Barber.id)
+Fades=ServiceCategory.create(name:"Fades", service_id:Barber.id)
+Design=ServiceCategory.create(name:"Design", service_id:Barber.id)
+BEvent=ServiceCategory.create(name:"Groups", service_id:Barber.id)
+BClasses=ServiceCategory.create(name:"Classes", service_id:Barber.id)
+BOther=ServiceCategory.create(name:"Other", service_id:Barber.id)
+
+Prints=ServiceCategory.create(name:"Prints", service_id:Artist.id)
+Commisions=ServiceCategory.create(name:"Commisions", service_id:Artist.id)
+Portraits=ServiceCategory.create(name:"Portraits", service_id:Artist.id)
+AEvent=ServiceCategory.create(name:"Groups", service_id:Artist.id)
+AClasses=ServiceCategory.create(name:"Classes", service_id:Artist.id)
+AOther=ServiceCategory.create(name:"Other", service_id:Artist.id)
+
+OTutor=ServiceCategory.create(name:"Tutor", service_id:Other.id)
+OClasses=ServiceCategory.create(name:"Classes", service_id:Artist.id)
+OOther=ServiceCategory.create(name:"Other", service_id:Artist.id)
+puts "we have categories"
 Alabama_AM_University=School.create(name:"Alabama A&M University",city:"Normal",state:"Alabama",image_url:"https://dbukjj6eu5tsf.cloudfront.net/sidearm.sites/aamusports.com/responsive_2019/images/svgs/footer_logo_aamu-new.png",is_hbcu: true)
 Alabama_State_University=School.create(name:"Alabama State University",city:"Montgomery",state:"Alabama",image_url:"https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Alabama_State_Hornets_logo.svg/1200px-Alabama_State_Hornets_logo.svg.png",is_hbcu: true)
 Benedict_College=School.create(name:"Benedict College",city:"Columbia",state:"South Carolina",image_url:"http://cdn.shopify.com/s/files/1/0105/4251/4223/collections/legacy-history-pride-benedict.jpg",is_hbcu: true)
@@ -75,13 +158,14 @@ School.create(name:"Barnard College",city:"New York",state:"New York",image_url:
 # # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
 # # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
 # # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# puts "We have pwi"
-Robin_Photos=UserService.create(name:"Headshots",description:"A headshot is a tightly cropped photo of the face, from the shoulders up. The subject is camera aware — typically looking right in the lens. Years ago, headshots were reserved for actors and models. ... A casting director can scour through hundreds of photos in search of the perfect face for the role at hand.",price:50,user_id:Robin.id,service_id:Photographers.id,school_id:Alabama_AM_University.id)
-Robin_Hair=UserService.create(name:"Knotless",description:"knotless braids",price:250,user_id:Robin.id,service_id:Hair_Stylist,school_id:Benedict_College.id)
-Robin_Nail=UserService.create(name:"coffin nails",description:"3 inch min punk",price:60,user_id:Robin.id,service_id:Nail_Tech.id,school_id:Benedict_College.id)
-Robin_makeup=UserService.create(name:"natural beat",description:"dont be a punk",price:70,user_id:Robin.id,service_id:Makeup_Artist.id,school_id:Benedict_College.id)
-Robin_Waxing=UserService.create(name:"bikini",description:"take the hair off nasty",price:80,user_id:Robin.id,service_id:Waxing_Tech.id,school_id:Benedict_College.id)
-Robin_Esthetician=UserService.create(name:"facials",description:"nice facials",price:100,user_id:Robin.id,service_id:Esthetician.id,school_id:Benedict_College.id)
-Robin_Barber=UserService.create(name:"lineup",description:"fix ya line",price:40,user_id:Robin.id,service_id:Barber.id,school_id:Benedict_College.id)
+puts "We have pwi"
+
+Robin_Photos=UserService.create(name:"Headshots",description:"A headshot is a tightly cropped photo of the face, from the shoulders up. The subject is camera aware — typically looking right in the lens. Years ago, headshots were reserved for actors and models. ... A casting director can scour through hundreds of photos in search of the perfect face for the role at hand.",service_category_id:Portrait.id,price:50,user_id:Robin.id,service_id:Photographers.id,school_id:Alabama_AM_University.id)
+Robin_Hair=UserService.create(name:"Knotless",description:"knotless braids",price:250,service_category_id:Braids.id,user_id:Robin.id,service_id:Hair_Stylist,school_id:Benedict_College.id)
+Robin_Nail=UserService.create(name:"coffin nails",description:"3 inch min punk",price:60,service_category_id:Manicure.id,user_id:Robin.id,service_id:Nail_Tech.id,school_id:Benedict_College.id)
+Robin_makeup=UserService.create(name:"natural beat",description:"dont be a punk",price:70,service_category_id:MNatural.id,user_id:Robin.id,service_id:Makeup_Artist.id,school_id:Benedict_College.id)
+Robin_Waxing=UserService.create(name:"bikini",description:"take the hair off nasty",price:80,service_category_id:Bikini.id,user_id:Robin.id,service_id:Waxing_Tech.id,school_id:Benedict_College.id)
+Robin_Esthetician=UserService.create(name:"facials",description:"nice facials",price:100,service_category_id:Facial.id,user_id:Robin.id,service_id:Esthetician.id,school_id:Benedict_College.id)
+Robin_Barber=UserService.create(name:"lineup",description:"fix ya line",price:40,service_category_id:Maintenance.id,user_id:Robin.id,service_id:Barber.id,school_id:Benedict_College.id)
 puts "users have services"
 puts "Done seeding"

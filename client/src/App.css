@@ -2,6 +2,14 @@
   text-align: center;
   background-color: #dfdecd;
   margin: 0;
+  
+}
+html{
+  height: 100%;
+}
+body{
+  min-height: 100% ;
+  background-color: #dfdecd;
 }
 .homepage{
   text-align: center;
@@ -52,6 +60,23 @@
   padding-top: 10px;
   
 }
+.categoriesContainers{
+  max-height:200px;
+  text-align: center;
+  width: 24%;
+  display: inline-block;
+  overflow: hidden;
+  background-color: rgb(92, 76, 53);
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.fullSpecificDiv{
+  text-align: center; 
+  display: inline-block;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-top: 10px;
+}
 .collegeContainers img{
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -69,7 +94,7 @@ background-color:#dfdecd;
 .Login{
   margin-left:70%;
   width:20%;
-  margin-top: -120px;
+  margin-top: -110px;
   padding-bottom: 3px;
 }
 #findCollege{
@@ -121,6 +146,9 @@ div[id='Esthetician']{
   background-image: url("https://i.pinimg.com/564x/0d/f8/b5/0df8b592896dc8b51de4715224644278.jpg");
 }
 div[id='Other']{
+  background-image: url("https://i.pinimg.com/736x/b7/01/7c/b7017c10c89bc6522fdec9815a803681.jpg");
+}
+div[id='Artist']{
   background-image: url("https://i.pinimg.com/564x/5d/61/72/5d6172a1cf5057a7810051ca1209363a.jpg");
 }
 div[id='Barber']{
@@ -128,7 +156,7 @@ div[id='Barber']{
   /* background-image: url("https://i.pinimg.com/564x/a8/5a/e8/a85ae8ffe16b0108991be263a0a3abca.jpg"); */
 }
 .testDiv{
-  height: 580px;
+  height: 770px;
 }
 .gapDiv{
   height: 50px;
@@ -138,6 +166,7 @@ div[id='Barber']{
   height: 150px;
   width: 100%;
   position: relative;
+  margin-top: 7px;
 }
 .profileForm {
   background-color: rgb(161, 63, 63);
@@ -303,6 +332,9 @@ margin: 20px;
   font-size: 17px;
   font-style: italic;
   font-weight: bold;
+  overflow: hidden;
+  height: 25px;
+  margin: 0;
 }
 .aboutUs p{
   font-weight: bold;
@@ -330,11 +362,150 @@ margin: 20px;
 }
 #logOut{
  left:0px;
- margin-bottom: 20px;
- margin-left:600px;
- margin-top:420px;
+ margin-left:800px;
+ margin-top:20px;
+}
+#addNewService{
+  left:0px;
+  margin-left:500px;
+  margin-top:400px;
 }
 #submit{
   margin-top: -70px;
   margin-right: 10px;
+}
+/* div[id='Photographers Sports']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Portrait']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Event Photography']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Modeling']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Video']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Buisness Services']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Classes']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Groups']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Photographers Other']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+
+div[id='Hair Stylist Natural']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Braids']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Sew In']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Closures']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Locs']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Groups']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Classes']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Groups']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Hair Stylist Other']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+
+div[id='Nail Tech Manicures']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Nail Tech Pedicures']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Nail Tech ManiPedis']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Nail Tech Classes']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Nail Tech Groups']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Nail Tech Other']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+
+div[id='Makeup Artist Natural']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Makeup Artist Full Face']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Makeup Artist Mini Beat']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Makeup Artist Classes']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Makeup Artist Groups']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+}
+div[id='Makeup Artist Other']{
+  background-image: url("https://i.pinimg.com/564x/31/f2/41/31f24190a1031838e4340e21b1779d0b.jpg");
+} */
+.serviceTechDiv{
+  width: 150px;
+  height: 200px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  background-color: bisque;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.picturetechDiv{
+  width: 120px;
+  height: 100px;
+  margin-top: 35px;
+  margin: auto;
+  background-color: rgb(138, 101, 55);
+  text-align: center;
+}
+#priceButton{
+  float: right;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  margin-right: 5px;
+  margin-top: 40px;
+  background-color: rgb(190, 109, 10);
+}
+#wrapper {
+  height: 1160px;
+  width: 100%;
+}
+#specificDescription{
+  font-size: 20px;
+}
+#specificPrice{
+  font-size: 20px;
+}
+#specificName{
+  font-size: 20px;
 }
