@@ -3,15 +3,8 @@ import HomeBanner from "./HomeBanner";
 import BottomBorder from "./BottomBorder";
 import SearchBar from "material-ui-search-bar";
 
-function SchoolPage(){
-    const [schoolList, setschoolList] = useState([]);
+function SchoolPage({schoolList}){
     const [searchFilter, setSearchFilter] = useState(schoolList);
-
-    useEffect(() => {
-        fetch("/schools")
-        .then((r) => r.json())
-        .then((schools) => setschoolList(schools))
-    }, []);
 
     const handleSearch = (e) => {
         const filtered = schoolList.filter((school) => {

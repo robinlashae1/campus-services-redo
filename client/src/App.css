@@ -361,9 +361,14 @@ margin: 20px;
   background-color: rgb(84, 84, 141);
 }
 #logOut{
- left:0px;
- margin-left:800px;
+ right:0px;
  margin-top:20px;
+ 
+}
+#serviceCreateButton{
+  right:0px;
+  margin-top:20px;
+  margin-right: 10px;
 }
 #addNewService{
   left:0px;
@@ -508,4 +513,76 @@ div[id='Makeup Artist Other']{
 }
 #specificName{
   font-size: 20px;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full width */
+  overflow: auto; /* Enable scroll if needed */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+body.modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+}
+.modalHeader{
+  background-color: #3a2f2f;
+  font-size: 30px;
+  font-weight: 50px;
+  color: #dfdecd;
+  max-height: 20%;
+  text-align: center;
+  height: 70px;
+}
+.modalBody{
+  background-color: #974141;
+  font-size: 20px;
+  font-weight: 50px;
+  text-align: left;
+  height: 550px;
+}
+.modalBody form{
+  margin-left: 30px;
+  max-height: 60%;
+}
+.modalFooter{
+  background-color: #3a2f2f;
+  max-height: 20%;
+  text-align: center;
+  height: 70px;
+}
+input[type=text ], select, input[type=integer ] {
+  width: 98%;
+  height: 47px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#modalSubmit{
+  margin-right: 15px;
+  right: 0;
+}
+#modalClose{
+  right: 0;
 }

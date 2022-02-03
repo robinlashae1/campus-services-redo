@@ -161,7 +161,7 @@ School.create(name:"Barnard College",city:"New York",state:"New York",image_url:
 puts "We have pwi"
 
 Robin_Photos=UserService.create(name:"Headshots",description:"A headshot is a tightly cropped photo of the face, from the shoulders up. The subject is camera aware — typically looking right in the lens. Years ago, headshots were reserved for actors and models. ... A casting director can scour through hundreds of photos in search of the perfect face for the role at hand.",service_category_id:Portrait.id,price:50,user_id:Robin.id,service_id:Photographers.id,school_id:Alabama_AM_University.id)
-Robin_Hair=UserService.create(name:"Knotless",description:"knotless braids",price:250,service_category_id:Braids.id,user_id:Robin.id,service_id:Hair_Stylist,school_id:Benedict_College.id)
+Robin_Hair=UserService.create(name:"Knotless",description:"knotless braids",price:250,service_category_id:Braids.id,user_id:Robin.id,service_id:Hair_Stylist.id,school_id:Benedict_College.id)
 Robin_Nail=UserService.create(name:"coffin nails",description:"3 inch min punk",price:60,service_category_id:Manicure.id,user_id:Robin.id,service_id:Nail_Tech.id,school_id:Benedict_College.id)
 Robin_makeup=UserService.create(name:"natural beat",description:"dont be a punk",price:70,service_category_id:MNatural.id,user_id:Robin.id,service_id:Makeup_Artist.id,school_id:Benedict_College.id)
 Robin_Waxing=UserService.create(name:"bikini",description:"take the hair off nasty",price:80,service_category_id:Bikini.id,user_id:Robin.id,service_id:Waxing_Tech.id,school_id:Benedict_College.id)

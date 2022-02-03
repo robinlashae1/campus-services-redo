@@ -21,6 +21,7 @@ function App(){
   const [servicesList, setServicesList]= useState([]);
   const [serviceCategoryList, setServiceCategoryList]=useState([]);
   const [userServiceList, setUserServiceList] = useState([]);
+  const [schoolList, setschoolList] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,6 +35,12 @@ function App(){
         .then((r) => r.json())
         .then((serviceCategory) => setServiceCategoryList(serviceCategory))
       }, []);
+      useEffect(() => {
+        fetch("/schools")
+        .then((r) => r.json())
+        .then((schools) => setschoolList(schools))
+    }, []);
+  
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -47,6 +54,7 @@ function App(){
         .then((r) => r.json())
         .then((services) => setServicesList(services))
       }, []);
+  
   return(
     <div className='App'>
       <BrowserRouter>
@@ -62,7 +70,7 @@ function App(){
             <About/>
           </Route>
           <Route exact path="/schools" >
-            <SchoolPage />
+            <SchoolPage schoolList={schoolList}/>
           </Route>
           <Route exact path={`/schools/:schoolName`} >
             <SchoolServicesPage servicesList={servicesList}/>
@@ -83,7 +91,7 @@ function App(){
             <TechServicePage/>
           </Route> */}
           <Route exact path='/myProfile'>
-            <PersonalProfilePage userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser}/>
+            <PersonalProfilePage schoolList={schoolList} userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser} serviceCategoryList={serviceCategoryList} servicesList={servicesList}/>
           </Route>
           <Route exact path="/rescue">
             <Rescue/>

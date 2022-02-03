@@ -1,10 +1,13 @@
 class UserServicesController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+
     def index
         render json: UserService.all
     end
     def create
-        service = @current_user.user_service.create!(uService_params)
-        render json: service, status: :created
+        services = UserService.create!(uService_params)
+        render json: services, status: :created
     end
     def show
         service = find_uService
@@ -17,13 +20,21 @@ class UserServicesController < ApplicationController
     end
     private
     def uService_params
-        params.permit(:name,:description,:price,:service_category_id,:user_id,:school_id,:images)
+        params.permit(:name,:description,:price,:service_id,:service_category_id,:user_id,:school_id)
     end
     def find_uService
         UserServices.find_by(id: params[:id])
     end
+    def render_not_found_response
+        render json: { error: "This service can not found"}, status: :not_found
+    end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
 end
 #@current_user.
+
 
     
     

@@ -2,6 +2,7 @@ import {React,} from "react";
 import { useParams } from "react-router-dom"
 import BottomBorder from "./BottomBorder";
 import HomeBanner from "./HomeBanner";
+import ServiceCard from "./ServiceCard"
 
 function SpecificService({userServiceList}) {
     const {userName,serviceName,serviceId } = useParams();
@@ -25,11 +26,7 @@ console.log(filteredById)
             <div className="fullSpecificDiv">
             <div id="techProfileSpace"/>
             {filteredByService.map(service=>(
-                <>
-                <div className="techProfileDivs"/>
-                    <div id="specificName">{service.name}</div>
-                    <div id="specificPrice">{service.price}</div>
-                    <div id="specificDescription">{service.description}</div></>
+                <ServiceCard service={service}/>
             ))}
             </div><BottomBorder/>
             </div>
