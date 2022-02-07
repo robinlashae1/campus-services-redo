@@ -1,13 +1,13 @@
-import {React, useState} from "react";
+import {React, useState,useEffect} from "react";
 import { useParams } from "react-router-dom"
 import HomeBanner from "./HomeBanner";
 import BottomBorder from "./BottomBorder";
 import SearchBar from "material-ui-search-bar";
+import ServiceCard from "./ServiceCard"
 
- function AllTechsPage ({servicesList}){
+ function AllTechsPage ({servicesList,user}){
     const {schoolName, serviceName,serviceCategoryName} = useParams();
     const [searchFilter, setSearchFilter] = useState(servicesList);
-console.log({servicesList})
 
   const filteredBySchool = servicesList.filter(userService=>(
     userService.school.name === schoolName
@@ -26,6 +26,10 @@ console.log({servicesList})
         })
         setSearchFilter(filtered)
     }
+    useEffect(() => {
+        setSearchFilter(filteredByCategory)
+      },[filteredByCategory])
+      
     return(
         <div className="schoolPage">
             <HomeBanner title={`${serviceCategoryName}`}/>
@@ -33,11 +37,7 @@ console.log({servicesList})
             {searchFilter.map(service=>(
                 //to specific service page
                     <a href={`/techs/${service.user.name}/${service.name}/${service.id}`}>
-                    <div className="serviceTechDiv"> 
-                    <div className="picturetechDiv"></div>
-                    <div id="serviceNamePlace">{service.name}</div>
-                    <div id="priceButton">${service.price}</div>
-                    </div>
+                    <ServiceCard canEdit={false} className={"serviceCard"} service={service}/>
                     </a>
                 )
             )}

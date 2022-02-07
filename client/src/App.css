@@ -39,7 +39,7 @@ body{
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-image: url("https://media.wired.com/photos/5d8aab8bef84070009028d31/master/pass/Plant-Music-1162975190.jpg")
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210127/pngtree-classic-texture-brown-background-image_542731.jpg")
 }
 #topBanner h2{
   text-align: center;
@@ -101,7 +101,7 @@ background-color:#dfdecd;
   width: "140px"
 }
 .title{
-  color: rgb(255, 255, 255);
+  color: #2b1500;
   font-size: 70px;
   padding: -50px 0;
   line-height: 1px;
@@ -230,6 +230,7 @@ margin: 20px;
   display: flex;
   align-items: center;
   max-width: 700px;
+  height: 57px !important;
 }
 
 .search-bar .MuiTextField-root {
@@ -297,7 +298,6 @@ margin: 20px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-bottom: 120px;
   margin-top: 10px;
 }
 .button:hover {
@@ -369,6 +369,10 @@ margin: 20px;
   right:0px;
   margin-top:20px;
   margin-right: 10px;
+  margin-bottom: 20px !important;
+}
+.bottombuttonExtend{
+  margin-bottom: 120px
 }
 #addNewService{
   left:0px;
@@ -506,13 +510,20 @@ div[id='Makeup Artist Other']{
   width: 100%;
 }
 #specificDescription{
-  font-size: 20px;
+  font-size: 13px;
+  text-align: center;
 }
 #specificPrice{
-  font-size: 20px;
+  font-size: 17px;
+  display: inline-block;
+  left: 0;
+  float: right;
+  margin-right: 10px;
 }
 #specificName{
-  font-size: 20px;
+  font-size: 17px;
+  display: inline-block;
+  text-align: center;
 }
 .modal {
   display: none; /* Hidden by default */
@@ -557,7 +568,7 @@ body.modal-open {
   font-size: 20px;
   font-weight: 50px;
   text-align: left;
-  height: 550px;
+  height: 650px;
 }
 .modalBody form{
   margin-left: 30px;
@@ -569,7 +580,7 @@ body.modal-open {
   text-align: center;
   height: 70px;
 }
-input[type=text ], select, input[type=integer ] {
+input[type=text ], select, input[type=integer ], input[type=file] {
   width: 98%;
   height: 47px;
   padding: 12px 20px;
@@ -585,4 +596,27 @@ input[type=text ], select, input[type=integer ] {
 }
 #modalClose{
   right: 0;
+}
+.serviceCard{
+  width: 15%;
+  background-color:rgb(226, 121, 121);
+  border-radius: 4px;
+  height: 250px;
+  margin-left: 10px;
+}
+.personalServiceCard{
+display: inline-block !important;
+background-color:rgb(145, 74, 74);
+width: 40%;
+border-radius: 4px;
+height: 250px;
+margin-left: 10px;
+max-height: 180px;
+    max-width: 25%;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.personalProfileServices{
+  overflow: auto;
 }

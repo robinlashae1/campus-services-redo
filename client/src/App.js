@@ -14,7 +14,7 @@ import AllTechsPage from './AllTechsPage';
 import PersonalProfilePage from './PersonalProfilePage';
 // import TechServicePage from './TechServicePage';
 import SpecificService from './SpecificService';
-// /schools/:schoolName
+
 
 function App(){
   const [user, setUser]= useState(null);
@@ -44,7 +44,8 @@ function App(){
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json()
+        .then((user) => setUser(user));
       }
     });
   }, []);
@@ -54,6 +55,15 @@ function App(){
         .then((r) => r.json())
         .then((services) => setServicesList(services))
       }, []);
+
+      function handleDelete(id) {
+        fetch(`/user_services/${id}`, {
+            method: 'DELETE',
+        }).then((r) => {
+            if (r.ok) {
+              setUserServiceList((services) =>
+                services.filter((services) => services.id !== id)
+                );}})}
   
   return(
     <div className='App'>
@@ -79,7 +89,7 @@ function App(){
             <ServiceCategoryPage serviceCategoryList={serviceCategoryList}/>
           </Route>
           <Route exact path= '/schools/:schoolName/:serviceName/:serviceCategoryName'>
-            <AllTechsPage servicesList={userServiceList}/>
+            <AllTechsPage servicesList={userServiceList} user={user}/>
           </Route>
           <Route exact path="/techs/:userName" >
             <TechProfilePage userServiceList={userServiceList}/>
@@ -91,7 +101,7 @@ function App(){
             <TechServicePage/>
           </Route> */}
           <Route exact path='/myProfile'>
-            <PersonalProfilePage schoolList={schoolList} userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser} serviceCategoryList={serviceCategoryList} servicesList={servicesList}/>
+            <PersonalProfilePage handleDelete={handleDelete} schoolList={schoolList} userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser} serviceCategoryList={serviceCategoryList} servicesList={servicesList}/>
           </Route>
           <Route exact path="/rescue">
             <Rescue/>

@@ -11,7 +11,7 @@ import BottomBorder from "./BottomBorder";
              <h1 id="homeSloganBottom">Wherever You are!</h1>
             <p id="homeSloganP">Let us help connect you to the people you're looking for...<br/> Anywhere, Anytime. We got you!</p>
             <a href="/schools">
-                <button className="button"type="button">Find Your School</button>
+                <button className="button bottombuttonExtend"type="button">Find Your School</button>
             </a>
             </div>
             <div className="circles"><div id="outterCircle"><div id="innerCircle"></div></div></div>

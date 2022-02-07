@@ -1,8 +1,10 @@
-import {React} from "react";
+import {React,useState} from "react";
 import Form from "react-bootstrap/Form";
+import { useHistory } from "react-router-dom";
 
 function Login({onLogin,username,password,setPassword,setUsername,user}) {
-    
+  let history = useHistory();
+  const [errors, setErrors] = useState([]);
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -13,13 +15,14 @@ function Login({onLogin,username,password,setPassword,setUsername,user}) {
         },
         body: JSON.stringify({ username: username, password }),
       })
-        .then((r) => r.json())
-        .then((user) => onLogin(user));
+        .then((r) => {
+          if (r.ok){
+          r.json().then((user) => onLogin(user)).then(history.push("/"));
+    } else {
+      r.json().then((err) => setErrors(err.errors));
     }
-   
-    // function validateForm() {
-    //   return username.length > 0 && password.length > 0;
-    // }
+  });}
+    console.log(errors)
     return(
     user ?
         <a href="http://localhost:4000/myProfile">
