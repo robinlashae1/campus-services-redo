@@ -3,7 +3,7 @@
 import { Modal, Button } from "react-bootstrap";
 import {React,useState} from "react";
 
-function CreateServiceForm({setModalShow,setShow,show,handleClose,serviceCategoryList,schoolList,user,servicesList}) {
+function CreateServiceForm({setCreateModalShow,setShow,show,handleClose,serviceCategoryList,schoolList,user,servicesList}) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [newName,setNewName]= useState([])
   const [newDescription,setDescription]= useState([])

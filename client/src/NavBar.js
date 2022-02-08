@@ -16,9 +16,9 @@ function NavBar({setPassword,setUsername,user, setUser,onLogin,username,password
     return (
       <div>
         <div id="title-banner">
-          {/* <a href="/home"> */}
+          <a href="/" id="homepageLink">
             <h1 >Campus Finder</h1>
-            {/* </a> */}
+            </a>
          </div>   
         <NavLink className="navLinks"
           to="/"

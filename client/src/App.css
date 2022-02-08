@@ -108,6 +108,10 @@ background-color:#dfdecd;
   padding-left: 50px;
   text-align: center;
 }
+#homepageLink{
+  text-decoration: none;
+  color: black;
+}
 .services{
   height: 370px;
   color: rgb(255, 255, 255);
@@ -619,4 +623,25 @@ max-height: 180px;
 }
 .personalProfileServices{
   overflow: auto;
+}
+.specificRender{
+background-color: rgba(255, 255, 255, 0);
+height: 50%;
+width: 60%;
+}
+.specificRender #specificName{
+  font-size: 40px;
+  color: #4CAF50;
+}
+.specificRender #specificPrice{
+  font-size: 25px;
+  color: #000000;
+  background-color: #ECB984;
+  padding: 3px 3px 3px 3px;
+  font-weight: bold;
+}
+.specificRender #specificDescription{
+  font-size: 15px;
+  color: #000000;
+  font-weight: bold;
 }

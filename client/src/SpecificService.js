@@ -19,14 +19,21 @@ function SpecificService({userServiceList}) {
         service.id === serviceId
     ))
 
-console.log(filteredById)
+console.log(filteredByService[0].user)
     return ( 
         <div>
             <HomeBanner title={serviceName} />
             <div className="fullSpecificDiv">
-            <div id="techProfileSpace"/>
+            <div id="techProfileSpace">
+                {/* {filteredByService[0].user.map(user=>(
+                    <>
+                        <h1>{user.name}</h1>
+                        <h1>{user.description}</h1>   
+                    </>
+                ))} */}
+            </div>
             {filteredByService.map(service=>(
-                <ServiceCard service={service}/>
+                <ServiceCard className={"specificRender"} service={service}/>
             ))}
             </div><BottomBorder/>
             </div>
