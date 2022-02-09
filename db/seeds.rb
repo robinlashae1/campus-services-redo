@@ -9,12 +9,13 @@ School.destroy_all
 User.destroy_all
 Service.destroy_all
 ServiceCategory.destroy_all
-ServiceCategory.destroy_all
-User.reset_pk_sequence
-User.reset_pk_sequence
+UserService.destroy_all
 School.reset_pk_sequence
+User.reset_pk_sequence
+ServiceCategory.reset_pk_sequence
 Service.reset_pk_sequence
 UserService.reset_pk_sequence
+
 puts "starting"
 Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",description:"hi im robin",is_tech:true)
 Will = User.create(name:"Will", username:"will",password:"will",password_confirmation:"will", is_tech:false)
@@ -151,13 +152,14 @@ Xavier_University_of_Louisiana=School.create(name:"Xavier University of Louisian
 puts "We have hbcu"
 School.create(name:"Loyola University Maryland",city:"Baltimore",state:"Maryland",image_url:"https://www.loyola.edu/-/media/about/brand/guidelines/logo-rules/lum_primary_gold_tn.png",is_hbcu: false)
 School.create(name:"Barnard College",city:"New York",state:"New York",image_url:"https://upload.wikimedia.org/wikipedia/commons/b/b7/Barnard_Logo.jpg",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
-# # School.create(name:"",city:"",state:"",image_url:"",is_hbcu: false)
+School.create(name:"Brown University",city:"Providence",state:"Rhode Island",image_url:"https://www.pngitem.com/pimgs/m/360-3608420_brown-university-logo-text-brown-university-logo-hd.png",is_hbcu: false)
+School.create(name:"Harvard University",city:"Cambridge",state:"Massachusetts",image_url:"https://logos-world.net/wp-content/uploads/2020/12/Harvard-Emblem.png",is_hbcu: false)
+School.create(name:"Cornell University",city:"Ithaca",state:"New York",image_url:"https://static.wixstatic.com/media/6b6ad5_8d05649adc2e472b83afabee81282a79~mv2.png/v1/fit/w_700%2Ch_410%2Cal_c/file.png",is_hbcu: false)
+School.create(name:"Princeton University",city:"Princeton",state:"New Jersey",image_url:"https://download.logo.wine/logo/Princeton_University/Princeton_University-Logo.wine.png",is_hbcu: false)
+School.create(name:"Dartmouth College",city:"Hanover",state:"New Hampshire",image_url:"https://allvectorlogo.com/img/2016/12/dartmouth-logo.png",is_hbcu: false)
+School.create(name:"Yale University",city:"New Haven",state:"Connecticut",image_url:"https://kclsed.org/wp-content/uploads/2020/02/yale-university-logo-png-2.png",is_hbcu: false)
+School.create(name:"Columbia University-NY",city:"New York",state:"New York",image_url:"https://visualidentity.columbia.edu/sites/default/files/styles/cu_crop/public/content/Logos/logo-blue-white.jpg?itok=Bkbj1Ax_",is_hbcu: false)
+School.create(name:"University of Pennsylvania",city:"Philadelphia",state:"Pennsylvania",image_url:"https://branding.web-resources.upenn.edu/sites/default/files/styles/1200x600_image/public/field/image/UniversityofPennsylvania_FullLogo_RGB_card.png?itok=xBxY13TC",is_hbcu: false)
 puts "We have pwi"
 
 Robin_Photos=UserService.create(name:"Headshots",description:"A headshot is a tightly cropped photo of the face, from the shoulders up. The subject is camera aware — typically looking right in the lens. Years ago, headshots were reserved for actors and models. ... A casting director can scour through hundreds of photos in search of the perfect face for the role at hand.",service_category_id:Portrait.id,price:50,user_id:Robin.id,service_id:Photographers.id,school_id:Alabama_AM_University.id)

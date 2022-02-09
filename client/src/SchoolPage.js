@@ -6,16 +6,22 @@ import SearchBar from "material-ui-search-bar";
 function SchoolPage({schoolList}){
     const [searchFilter, setSearchFilter] = useState(schoolList);
 
+    const alphabeticalFiltered= schoolList.sort(function(a,b){
+      if(a.name < b.name) { return -1; }
+    if(a.name > b.name) { return 1; }
+    return 0;
+    })
+
     const handleSearch = (e) => {
-        const filtered = schoolList.filter((school) => {
+        const filtered = alphabeticalFiltered.filter((school) => {
           return school.name.toLowerCase().includes(e)
         })
         setSearchFilter(filtered)
       }
 
       useEffect(() => {
-        setSearchFilter(schoolList)
-      },[schoolList])
+        setSearchFilter(alphabeticalFiltered)
+      },[alphabeticalFiltered])
 
     return(
         <div className="schoolPage">

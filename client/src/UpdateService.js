@@ -40,7 +40,9 @@ function UpdateService({service,show,id,modalData,handleClose,serviceCategoryLis
         userService.service.id === parseInt(serviceId)
         ))
 console.log(modalData)
+
     return (
+      modalData?
       <Modal show={show} onHide={handleClose} className="modal">
         <Modal.Header className="modalHeader">
         <Modal.Title id="contained-modal-title-vcenter">
@@ -50,16 +52,11 @@ console.log(modalData)
       <Modal.Body className="modalBody">
       <form onSubmit={() => handleUpdate(modalData.id)} className="modal-details" className="modal-content" className="modalBody">
           <label for="name">Name</label>
-          <input type="text" placeholder={updatedName} 
-          onChange={(e)=>{setNewName(e.target.value)}}></input> <br/>
+          <input type="text" placeholder={modalData.name} onChange={(e)=>{setNewName(e.target.value)}}></input> <br/>
           <label for="Description">Description</label>
-          <input type="text" 
-          //placeholder={modalData.description} 
-          onChange={(e)=>{setDescription(e.target.value)}}/><br/>
+          <input type="text" placeholder={modalData.description} onChange={(e)=>{setDescription(e.target.value)}}/><br/>
         <label for="price">Price</label>
-          <input type="integer" 
-          //placeholder={modalData.price}
-           onChange={(e)=>{setPrice(e.target.value)}}/><br/>
+          <input type="integer" placeholder={modalData.price} onChange={(e)=>{setPrice(e.target.value)}}/><br/>
         <label for="ServiceCategoryId">What type of Service is this?</label>
         <select  onChange={(e)=>{setServiceId(e.target.value)}}><br/>
         <option value=""></option>
@@ -90,7 +87,7 @@ console.log(modalData)
       <button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details" onClick={console.log("updated")} >Submit</button>
       <Button variant="secondary" onClick={handleClose} className="button" id="modalClose">Close</Button>
       </Modal.Footer>
-    </Modal> 
+    </Modal> : <></>
      );
 }
 

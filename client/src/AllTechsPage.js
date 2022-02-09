@@ -5,7 +5,7 @@ import BottomBorder from "./BottomBorder";
 import SearchBar from "material-ui-search-bar";
 import ServiceCard from "./ServiceCard"
 
- function AllTechsPage ({servicesList,user}){
+ function AllTechsPage ({servicesList}){
     const {schoolName, serviceName,serviceCategoryName} = useParams();
     const [searchFilter, setSearchFilter] = useState(servicesList);
 

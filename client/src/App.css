@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
 .App {
   text-align: center;
   background-color: #dfdecd;
@@ -527,6 +528,7 @@ div[id='Makeup Artist Other']{
 #specificName{
   font-size: 17px;
   display: inline-block;
+  font-weight: bolder;
   text-align: center;
 }
 .modal {
@@ -607,6 +609,32 @@ input[type=text ], select, input[type=integer ], input[type=file] {
   border-radius: 4px;
   height: 250px;
   margin-left: 10px;
+  position: relative;
+  -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+.serviceCard .front {
+  background: red;
+}
+.serviceCard .back {
+  background: blue;
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}
+.serviceCard .flipped {
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
 }
 .personalServiceCard{
 display: inline-block !important;
@@ -644,4 +672,23 @@ width: 60%;
   font-size: 15px;
   color: #000000;
   font-weight: bold;
+}
+.editButtons{
+  position: absolute; 
+  bottom: 5px;
+  right: 3px;
+}
+.editButton{
+height: 25px;
+width: 30px;
+padding: 0;
+border: none;
+background: none;
+cursor: pointer;
+display: inline-block;
+}
+.hrl{
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #000000;
+  margin-right: 5px;
 }
