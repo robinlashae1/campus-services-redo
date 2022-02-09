@@ -1,10 +1,10 @@
-import {React,} from "react";
+import {React,useEffect} from "react";
 import { useParams } from "react-router-dom"
 import BottomBorder from "./BottomBorder";
 import HomeBanner from "./HomeBanner";
 import ServiceCard from "./ServiceCard"
 
-function SpecificService({userServiceList}) {
+function SpecificService({userServiceList,user}) {
     const {userName,serviceName,serviceId } = useParams();
 
     const filterByUser = userServiceList.filter(service=>(
@@ -19,18 +19,27 @@ function SpecificService({userServiceList}) {
         service.id === serviceId
     ))
 
-console.log(filteredByService[0].user)
-    return ( 
+    return (
+        user?
         <div>
+            <HomeBanner title={serviceName} />
+            <div className="fullSpecificDiv"> 
+            <a href={`http://localhost:4000/techs/${userName}`}><div id="techProfileSpace">
+                
+                <div className="userPic"/>
+                <h1>{filteredByService[0].user.name}</h1>
+                <h1>{filteredByService[0].user.description}</h1>
+            </div></a>
+            {filteredByService.map(service=>(
+                <ServiceCard className={"specificRender"} service={service}/>
+            ))}
+            </div><BottomBorder/>
+            </div>:
+            <div>
             <HomeBanner title={serviceName} />
             <div className="fullSpecificDiv">
             <div id="techProfileSpace">
-                {/* {filteredByService[0].user.map(user=>(
-                    <>
-                        <h1>{user.name}</h1>
-                        <h1>{user.description}</h1>   
-                    </>
-                ))} */}
+            <div className="loadingDiv"/>
             </div>
             {filteredByService.map(service=>(
                 <ServiceCard className={"specificRender"} service={service}/>

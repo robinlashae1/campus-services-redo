@@ -49,7 +49,20 @@ console.log(user)
             schoolList={schoolList} show={modalShow} handleClose={() => setModalShow(false)}/> 
         </div>
         <BottomBorder/> 
-    </div> : <h1>"not a user"</h1> 
+    </div> : <div>
+      <HomeBanner title="My Profile"/>
+      <div id="profileDiv">
+        <div className="loadingDiv"/>
+      </div>
+        <button type="button" id="serviceCreateButton" className="button" onClick={() => setCreateModalShow(true)}>Create a Service</button>
+          <CreateServiceForm  setCreateModalShow={setCreateModalShow} user={user} 
+              servicesList={servicesList} serviceCategoryList={serviceCategoryList} 
+              schoolList={schoolList} show={createModalShow} handleClose={() => setCreateModalShow(false)} />
+      <button className="button" id="logOut" onClick={handleLogout}>Log Out</button>
+      <div className="personalProfileServices">
+        <div className="loadingDiv"/>
+        </div>
+        </div>
   )}
 
 export default PersonalProfilePage

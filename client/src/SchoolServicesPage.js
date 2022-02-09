@@ -4,7 +4,6 @@ import HomeBanner from "./HomeBanner";
 import BottomBorder from "./BottomBorder";
 
 function SchoolServicesPage({servicesList}){
-
    const {schoolName} = useParams();
 
     return(

@@ -39,7 +39,6 @@ function UpdateService({service,show,id,modalData,handleClose,serviceCategoryLis
     const filteredCategories = serviceCategoryList.filter(userService=>(
         userService.service.id === parseInt(serviceId)
         ))
-console.log(modalData)
 
     return (
       modalData?
@@ -50,7 +49,7 @@ console.log(modalData)
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modalBody">
-      <form onSubmit={() => handleUpdate(modalData.id)} className="modal-details" className="modal-content" className="modalBody">
+      <form onSubmit={console.log("submitted")} className="modal-details" className="modal-content" className="modalBody">
           <label for="name">Name</label>
           <input type="text" placeholder={modalData.name} onChange={(e)=>{setNewName(e.target.value)}}></input> <br/>
           <label for="Description">Description</label>
@@ -84,7 +83,7 @@ console.log(modalData)
         
       </Modal.Body>
        <Modal.Footer className="modalFooter">
-      <button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details" onClick={console.log("updated")} >Submit</button>
+      <button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details" onClick={() => handleUpdate(modalData.id)} >Submit</button>
       <Button variant="secondary" onClick={handleClose} className="button" id="modalClose">Close</Button>
       </Modal.Footer>
     </Modal> : <></>

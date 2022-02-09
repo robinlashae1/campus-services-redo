@@ -6,7 +6,7 @@ resources :service_categories do
   resources :user_services
 end
 resources :services, only: [:index, :create, :show]
-resources :user_services, only: [:index, :destroy, :create, :show]
+resources :user_services, only: [:index, :destroy, :create, :show, :update]
 # do
 #   resources :schools, only: [:show, :index]
 #   resources :users, only: [:show, :index]

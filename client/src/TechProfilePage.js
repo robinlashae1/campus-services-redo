@@ -1,7 +1,8 @@
-import {React, useState} from "react";
+import {React, useState,useEffect} from "react";
 import { useParams } from "react-router-dom"
 import BottomBorder from "./BottomBorder";
 import HomeBanner from "./HomeBanner";
+import ServiceCard from "./ServiceCard";
 import SearchBar from "material-ui-search-bar";
 
 function TechProfilePage({userServiceList}) {
@@ -20,16 +21,23 @@ function TechProfilePage({userServiceList}) {
         setSearchFilter(filtered)
       }
 
+      useEffect(() => {
+        setSearchFilter(userServiceList)
+      },[userServiceList])
+
     return ( 
         <div>
             <HomeBanner title={userName} />
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
-            <div className="testDiv">
-            <div id="techProfileSpace"/>
-            {searchFilter.map(service=>(
-                <div className="techProfileDivs">{service.name}</div>
-            ))}
+            <div id="techServiceSpace">
+            <div id="techProfileSpace">
+            <div className="userPic"/>
             </div>
+            <div className="displayTechService">
+            {searchFilter.map(service=>(
+                <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/>
+            ))}
+            </div></div>
             <BottomBorder/>
         </div>
     );

@@ -95,7 +95,7 @@ function App(){
             <TechProfilePage userServiceList={userServiceList}/>
           </Route>
           <Route exact path="/techs/:userName/:serviceName/:serviceId" >
-            <SpecificService userServiceList={userServiceList}/>
+            <SpecificService userServiceList={userServiceList} user={user}/>
           </Route>
           {/* <Route exact path="/:userName/:serviceName">
             <TechServicePage/>

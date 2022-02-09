@@ -39,7 +39,7 @@ function flip() {
                 </div>
             </>
             ) 
-        } else if (className === "serviceCard"){
+        } else if (className === "techServiceCard"){
             return(
             <div className={`${className} serviceCard`}>
             <div id="specificName">{service.name}</div>
@@ -47,7 +47,15 @@ function flip() {
             <div id="specificDescription">{`${results}...`}</div>
             </div>
             )
-        }
+        } else if (className === "serviceCard"){
+        return(
+        <div className={`${className} serviceCard`}>
+        <div id="specificName">{service.name}</div>
+        <div id="specificPrice">{`$${service.price}`}</div>
+        <div id="specificDescription">{`${results}...`}</div>
+        </div>
+        )
+    }
         else if (className === "specificRender"){
             return(
                 <div className={`${className} serviceCard`}>
