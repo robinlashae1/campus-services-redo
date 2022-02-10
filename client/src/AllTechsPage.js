@@ -30,8 +30,20 @@ import ServiceCard from "./ServiceCard"
         setSearchFilter(filteredByCategory)
       },[filteredByCategory])
       
-    return(
-        <div className="schoolPage">
+    
+        if (filteredByCategory < 1){
+           return(
+            <div className="schoolPage">
+            <HomeBanner title={`${serviceCategoryName}`}/>
+            <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
+               <h1>Sorry, there a No services here yet.<br/>
+                Be sure to check back soon, We are growing everyday!</h1>
+                <BottomBorder/>
+            </div>
+           )
+        } else{
+            return(
+              <div className="schoolPage">
             <HomeBanner title={`${serviceCategoryName}`}/>
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
             {searchFilter.map(service=>(
@@ -42,9 +54,8 @@ import ServiceCard from "./ServiceCard"
                 )
             )}
         <BottomBorder/>
-        </div>
-
-    )
-
-}
+        </div>  
+            )
+        }
+        }
 export default AllTechsPage

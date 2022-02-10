@@ -44,7 +44,7 @@ console.log(user)
             <ServiceCard setModalData={setModalData} user={user} setModalShow={setModalShow}
             key={service.id} handleDelete={handleDelete} className={"personalServiceCard"} service={service}/>
           ) })}
-           <UpdateService  modalData={modalData} setModalShow={setModalShow} 
+           <UpdateService setModalShow={setModalShow} modalData={modalData} setModalShow={setModalShow} 
            user={user} servicesList={servicesList} serviceCategoryList={serviceCategoryList}
             schoolList={schoolList} show={modalShow} handleClose={() => setModalShow(false)}/> 
         </div>

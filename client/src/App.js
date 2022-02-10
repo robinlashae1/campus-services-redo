@@ -74,7 +74,7 @@ function App(){
             <Login user={user} onLogin={setUser} setUsername={setUsername} username={username} password={password} setPassword={setPassword}/>
           </Route>
           <Route exact path="/" >
-            <HomePage />
+            <HomePage user={user}/>
           </Route>
           <Route exact path="/about">
             <About/>
@@ -92,7 +92,7 @@ function App(){
             <AllTechsPage servicesList={userServiceList} user={user}/>
           </Route>
           <Route exact path="/techs/:userName" >
-            <TechProfilePage userServiceList={userServiceList}/>
+            <TechProfilePage userServiceList={userServiceList} user={user}/>
           </Route>
           <Route exact path="/techs/:userName/:serviceName/:serviceId" >
             <SpecificService userServiceList={userServiceList} user={user}/>

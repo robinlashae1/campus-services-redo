@@ -5,7 +5,7 @@ import HomeBanner from "./HomeBanner";
 import ServiceCard from "./ServiceCard";
 import SearchBar from "material-ui-search-bar";
 
-function TechProfilePage({userServiceList}) {
+function TechProfilePage({userServiceList,user}) {
     // const [serviceList, setServiceList] = useState([]);
     const [searchFilter, setSearchFilter] = useState(userServiceList);
     const {userName} = useParams();
@@ -26,20 +26,25 @@ function TechProfilePage({userServiceList}) {
       },[userServiceList])
 
     return ( 
+      user? 
         <div>
-            <HomeBanner title={userName} />
-            <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
-            <div id="techServiceSpace">
+          <HomeBanner title={userName} />
+         
+          {/* <div id="techServiceSpace"> */}
             <div id="techProfileSpace">
-            <div className="userPic"/>
+              <div className="userPic"/>
+              <h1>{filterByUser[0].user.name}</h1>
+              <h1>{filterByUser[0].user.description}</h1>
             </div>
             <div className="displayTechService">
+              <SearchBar className="search-bar techSearch gapDiv" onChange={handleSearch}/>
             {searchFilter.map(service=>(
-                <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/>
+              <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/>
             ))}
-            </div></div>
-            <BottomBorder/>
-        </div>
+            </div>
+          {/* </div> */}
+          <BottomBorder/>
+        </div>: <></>
     );
 }
 

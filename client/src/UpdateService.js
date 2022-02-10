@@ -1,7 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import {React,useState} from "react";
 
-function UpdateService({service,show,id,modalData,handleClose,serviceCategoryList,schoolList,user,servicesList}) {
+function UpdateService({service,show,id,setModalShow,modalData,handleClose,serviceCategoryList,schoolList,user,servicesList}) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [updatedName,setNewName]= useState([])
   const [newDescription,setDescription]= useState([])
@@ -49,7 +49,7 @@ function UpdateService({service,show,id,modalData,handleClose,serviceCategoryLis
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modalBody">
-      <form onSubmit={console.log("submitted")} className="modal-details" className="modal-content" className="modalBody">
+      <form  onSubmit={handleClose} className="modal-details" className="modal-content" className="modalBody">
           <label for="name">Name</label>
           <input type="text" placeholder={modalData.name} onChange={(e)=>{setNewName(e.target.value)}}></input> <br/>
           <label for="Description">Description</label>
@@ -83,7 +83,7 @@ function UpdateService({service,show,id,modalData,handleClose,serviceCategoryLis
         
       </Modal.Body>
        <Modal.Footer className="modalFooter">
-      <button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details" onClick={() => handleUpdate(modalData.id)} >Submit</button>
+      <button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details"  onClick={() => handleUpdate(modalData.id)} >Submit</button>
       <Button variant="secondary" onClick={handleClose} className="button" id="modalClose">Close</Button>
       </Modal.Footer>
     </Modal> : <></>
