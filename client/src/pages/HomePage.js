@@ -6,7 +6,7 @@ import BottomBorder from "../bars/BottomBorder";
     return(
     user?
         <div className="homepage">
-            <HomeBanner setUser={setUser} setLoginShow={setLoginShow} loginShow={loginShow} title="HOME" location="homepage" user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
+            <HomeBanner onLogin={onLogin} setUser={setUser} setLoginShow={setLoginShow} loginShow={loginShow} title="HOME" location="homepage" user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
             <div id="homePageHolder">
 
         
@@ -29,7 +29,7 @@ import BottomBorder from "../bars/BottomBorder";
          </div>
         </div>:
         <div className="homepage">
-        <HomeBanner setLoginShow={setLoginShow} loginShow={loginShow} title="HOME" location="homepage" user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
+        <HomeBanner onLogin={onLogin} setLoginShow={setLoginShow} loginShow={loginShow} title="HOME" location="homepage" user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
         <div id="homePageHolder">
 
         

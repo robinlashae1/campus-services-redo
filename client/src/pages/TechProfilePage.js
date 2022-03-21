@@ -5,7 +5,7 @@ import HomeBanner from "../bars/HomeBanner";
 import ServiceCard from "../pages/ServiceCard";
 import SearchBar from "material-ui-search-bar";
 
-function TechProfilePage({userServiceList,user}) {
+function TechProfilePage({userServiceList,setLoginShow,loginShow,user,onLogin,setUsername,setPassword,username,password}) {
     // const [serviceList, setServiceList] = useState([]);
     const [searchFilter, setSearchFilter] = useState(userServiceList);
     const {userName} = useParams();
@@ -28,7 +28,7 @@ console.log(filterByUser)
     return ( 
       filterByUser[0]? 
         <div style={{height: "100vh"}}>
-          <HomeBanner user={user} title={userName} />
+          <HomeBanner setUsername={setUsername} onLogin={onLogin} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={userName} />
          
           {/* <div id="techServiceSpace"> */}
           <div style={{marginTop: "1%"}}>

@@ -146,7 +146,7 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
       >
         My Profile
       </NavLink>
-      
+      <Login loginDefault={loginDefault} user={user} show={loginShow} handleClose={()=> setLoginShow(false)}onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
       </div>  
     </div> :
       <div>
@@ -191,6 +191,7 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
     >
       Sign Up
     </button>
+      <Login loginDefault={loginDefault} user={user} show={loginShow} handleClose={()=> setLoginShow(false)}onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
       </div>
     )
   }

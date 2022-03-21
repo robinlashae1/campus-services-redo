@@ -5,7 +5,7 @@ import BottomBorder from "../bars/BottomBorder";
 import SearchBar from "material-ui-search-bar";
 import ServiceCard from "../pages/ServiceCard"
 
- function AllTechsPage ({servicesList,user}){
+ function AllTechsPage ({servicesList,user,setLoginShow,loginShow,onLogin,setUsername,setPassword,username,password}){
     const {schoolName, serviceName,serviceCategoryName} = useParams();
     const [searchFilter, setSearchFilter] = useState(servicesList);
 
@@ -34,7 +34,7 @@ import ServiceCard from "../pages/ServiceCard"
         if (filteredByCategory < 1){
            return(
             <div className="schoolPage">
-            <HomeBanner user={user} title={`${serviceCategoryName}`}/>
+            <HomeBanner onLogin={onLogin} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={`${serviceCategoryName}`}/>
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
                <h1>Sorry, there are no services here yet.<br/>
                 Be sure to check back soon, We are growing everyday!</h1>
@@ -43,7 +43,7 @@ import ServiceCard from "../pages/ServiceCard"
         } else{
             return(
               <div className="schoolPage">
-            <HomeBanner user={user} title={`${serviceCategoryName}`}/>
+            <HomeBanner onLogin={onLogin} user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={`${serviceCategoryName}`}/>
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
             {searchFilter.map(service=>(
                 //to specific service page

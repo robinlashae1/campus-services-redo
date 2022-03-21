@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import HomeBanner from "../bars/HomeBanner";
 import BottomBorder from "../bars/BottomBorder";
 
-function ServiceCategoryPage({serviceCategoryList,user}){
+function ServiceCategoryPage({serviceCategoryList,user,setLoginShow,loginShow,onLogin,setUsername,setPassword,username,password}){
 
    const {serviceName,schoolName} = useParams();
    //${service.service_categories.name}
@@ -12,7 +12,7 @@ function ServiceCategoryPage({serviceCategoryList,user}){
    ))
     return(
         <div className="serviceCategoryPage">
-            <HomeBanner user={user} title={`${serviceName}`}/>
+            <HomeBanner user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={`${serviceName}`}/>
             <div className="colleges-center" >
               {FilteredServiceCategoryList.map((category)=>(
                 <div className="categoriesContainers" id="service-categories">

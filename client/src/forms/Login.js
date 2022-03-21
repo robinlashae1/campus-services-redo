@@ -144,7 +144,7 @@ console.log(newIsTech)
               </Form.Group>
               <div style={{display: "flex", flexDirection: "row", border: "black 1.5px solid ",textAlign: "center",backgroundColor: "white"}}>
                 <Form.Group size="lg" controlId="password" style={{width:"55%",backgroundColor: "white"}}>
-            <Form.Label>Profile Picture</Form.Label>
+            <Form.Label>Profile Picture (REQUIRED)</Form.Label>
             <div >
               <Form.Control
               style={{margin: "auto"}}

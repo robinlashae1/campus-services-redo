@@ -79,33 +79,33 @@ function App(){
             <HomePage setUser={setUser} user={user} setLoginShow={setLoginShow} loginShow={loginShow} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/about">
-            <About user={user} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
+            <About setLoginShow={setLoginShow} loginShow={loginShow} user={user} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/schools" >
-            <SchoolPage user={user} schoolList={schoolList}/>
+            <SchoolPage setLoginShow={setLoginShow} loginShow={loginShow} user={user} onLogin={setUser} schoolList={schoolList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path={`/schools/:schoolName`} >
-            <SchoolServicesPage user={user} servicesList={servicesList}/>
+            <SchoolServicesPage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} servicesList={servicesList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/schools/:schoolName/:serviceName" >
-            <ServiceCategoryPage user={user} serviceCategoryList={serviceCategoryList}/>
+            <ServiceCategoryPage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} serviceCategoryList={serviceCategoryList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path= '/schools/:schoolName/:serviceName/:serviceCategoryName'>
-            <AllTechsPage user={user} servicesList={userServiceList} user={user}/>
+            <AllTechsPage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} servicesList={userServiceList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/techs/:userName" >
-            <TechProfilePage user={user} userServiceList={userServiceList} user={user}/>
+            <TechProfilePage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} userServiceList={userServiceList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/techs/:userName/:serviceName/:serviceId" >
-            <SpecificService user={user} userServiceList={userServiceList} user={user}/>
+            <SpecificService setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} userServiceList={userServiceList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           {/* <Route exact path="/:userName/:serviceName">
             <TechServicePage/>
           </Route> */}
           <Route exact path='/myProfile'>
-            <PersonalProfilePage handleDelete={handleDelete} schoolList={schoolList} userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser} serviceCategoryList={serviceCategoryList} servicesList={servicesList}/>
+            <PersonalProfilePage onLogin={setUser} setLoginShow={setLoginShow} loginShow={loginShow} handleDelete={handleDelete} schoolList={schoolList} userServiceList={userServiceList} setUsername={setUsername} user={user} setUser={setUser} serviceCategoryList={serviceCategoryList} servicesList={servicesList}/>
           </Route>
-          <Route exact path="/rescue">
+          <Route>
             <Rescue/>
           </Route>
       </Switch>

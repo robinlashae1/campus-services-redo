@@ -2,10 +2,10 @@ import React from "react";
 import HomeBanner from "../bars/HomeBanner";
 import BottomBorder from "../bars/BottomBorder";
 
-function About({user,onLogin,setUsername,setPassword,username,password}){
+function About({user,onLogin,setUsername,setLoginShow,loginShow,setPassword,username,password}){
     return(
     <div className="aboutPage">
-        <HomeBanner title="Mission Statement" location="" user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
+        <HomeBanner onLogin={onLogin} setLoginShow={setLoginShow} user={user} setUsername={setUsername} setPassword={setPassword} username={username} password={password} loginShow={loginShow} title="Mission Statement" location="" user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
         <div id="textSpace">
         <div className="aboutUs">
             <p>Born out of the need for easy access to local beauty services 

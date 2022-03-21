@@ -22,7 +22,7 @@ body{
 }
 #titleBorderBackground{
   background-color: #ffa800;
-  /* height: 100%; */
+  height: 100%;
   /* line-height: 1.5; */
   font-weight: bold;
   width: auto;
@@ -135,6 +135,7 @@ body{
 }
 .aboutPage{
   overflow-x: hidden;
+  height: 100vh;
 }
 #aboutImage{
   /* background-color: #4CAF50; */
@@ -146,6 +147,7 @@ body{
 }
 .aboutUs{
   margin-right: 5vw;
+  
 }
 .aboutUs p{
   width: 36vw;
@@ -745,6 +747,9 @@ input[type=file]{
 }
 #modalClose{
   right: 0;
+}
+.serviceCategoryPage{
+  height: 100vh
 }
 .serviceCard{
   width: 15%;

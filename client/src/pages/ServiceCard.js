@@ -1,6 +1,6 @@
 import {React,useState} from "react";
 import UpdateService from "../forms/UpdateService";
-function ServiceCard({service, setModalData, className,handleDelete,setModalShow}) {
+function ServiceCard({service, setModalData,onLogin,setUsername,setPassword,username,password,setLoginShow,loginShow,className,handleDelete,setModalShow}) {
 const des = service.description
 const count = 150
 const results = des.slice(0, count)

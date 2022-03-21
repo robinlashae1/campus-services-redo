@@ -4,7 +4,7 @@ import BottomBorder from "../bars/BottomBorder";
 import HomeBanner from "../bars/HomeBanner";
 import ServiceCard from "../pages/ServiceCard"
 
-function SpecificService({userServiceList,user}) {
+function SpecificService({userServiceList,setLoginShow,loginShow,user,onLogin,setUsername,setPassword,username,password}) {
     const {userName,serviceName,serviceId } = useParams();
 
     const filterByUser = userServiceList.filter(service=>(
@@ -23,7 +23,7 @@ function SpecificService({userServiceList,user}) {
     return (
         filteredByService[0]?
         <div style={{height: "100vh"}}>
-            <HomeBanner user={user} title={serviceName} />
+            <HomeBanner user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={serviceName} />
             <div className="fullSpecificDiv"> 
             <a href={`http://localhost:4000/techs/${userName}`}><div id="techProfileSpace">
                 
@@ -40,7 +40,7 @@ function SpecificService({userServiceList,user}) {
             </div>
             </div>:
             <div>
-            <HomeBanner user={user} title={serviceName} />
+            <HomeBanner user={user} onLogin={onLogin} setLoginShow={setLoginShow} loginShow={loginShow} setUsername={setUsername} setPassword={setPassword} username={username} password={password} user={user} title={serviceName} />
             <div className="fullSpecificDiv">
             <div id="techProfileSpace">
             <div className="loadingDiv"/>

@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import UpdateService from "../forms/UpdateService";
 import UpdateUserForm from "../forms/UpdateUserForm";
 
-function PersonalProfilePage({schoolList, handleDelete,user,setUser,servicesList,serviceCategoryList}) {
+function PersonalProfilePage({schoolList,onLogin,setLoginShow,loginShow,handleDelete,user,setUser,servicesList,serviceCategoryList,setUsername,setPassword,username,password}) {
   
   const [createModalShow, setCreateModalShow] = useState(false);
   const [updateModalShow, setUpdateModalShow] = useState(false);
@@ -45,7 +45,7 @@ function PersonalProfilePage({schoolList, handleDelete,user,setUser,servicesList
   return (
     user?
     <div id="personalProfilePage">
-      <HomeBanner title="My Profile" user={user}/>
+      <HomeBanner user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} title="My Profile" user={user}/>
       <div id="profileDiv">
         
         <img id="personalProfilePic" src={user.profile_picture.url} alt="profile picture"/>
@@ -71,7 +71,7 @@ function PersonalProfilePage({schoolList, handleDelete,user,setUser,servicesList
             schoolList={schoolList} show={modalShow} handleClose={() => setModalShow(false)}/> 
         </div>
     </div> : <div>
-      <HomeBanner user={user} title="My Profile"/>
+      <HomeBanner onLogin={onLogin} user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title="My Profile"/>
       <div id="profileDiv">
         <div className="loadingDiv"/>
       </div>
