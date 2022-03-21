@@ -191,11 +191,6 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
     >
       Sign Up
     </button>
-        //  <button onClick={() => {setLoginShow(true);setLoginDefault(true)}}>Login</button>
-        //  <button onClick={() => {setLoginShow(true);setLoginDefault(false)}}>Sign Up</button>
-        {/* <div className="Login">
-          <Login user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
-        </div> */}
       </div>
     )
   }

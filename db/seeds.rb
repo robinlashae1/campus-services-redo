@@ -17,21 +17,21 @@ Service.reset_pk_sequence
 UserService.reset_pk_sequence
 
 puts "starting"
-Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",description:"hi im robin",is_tech:true,profile_picture: [])
-Will = User.create(name:"Will", username:"will",password:"will",password_confirmation:"will", is_tech:false)
-Hope = User.create!(name:"Hope Johnson", username:"Hope",password:"Hope",password_confirmation:"Hope",is_tech:true)
-Ara = User.create!(name:"Ara Vernon", username:"Ara",password:"Ara",password_confirmation:"Ara",is_tech:true)
-Jonae = User.create!(name:"Jonae Sophia", username:"Jonae",password:"Jonae",password_confirmation:"Jonae",is_tech:true)
-Brandy = User.create!(name:"Brandy Jones", username:"Brandy",password:"Brandy",password_confirmation:"Brandy",is_tech:true)
-Bill= User.create!(name:"Bill Bailey", username:"Bill",password:"Bill",password_confirmation:"Bill",is_tech:true)
-Justin= User.create!(name:"Justin", username:"Justin",password:"Justin",password_confirmation:"Justin",is_tech:true)
-Skylar= User.create!(name:"Skylar", username:"Skylar",password:"Skylar",password_confirmation:"Skylar",is_tech:true)
-Cecelia= User.create!(name:"Cecelia", username:"Cecelia",password:"Cecelia",password_confirmation:"Cecelia",is_tech:true)
-Isabella= User.create!(name:"Isabella", username:"Isabella",password:"Isabella",password_confirmation:"Isabella",is_tech:true)
-Stacy= User.create!(name:"Stacy", username:"Stacy",password:"Stacy",password_confirmation:"Stacy",is_tech:true)
-Candace= User.create!(name:"Candace", username:"Candace",password:"Candace",password_confirmation:"Candace",is_tech:true)
-Demi= User.create!(name:"Demi", username:"Demi",password:"Demi",password_confirmation:"Demi",is_tech:true)
-puts "have users"
+# Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",description:"hi im robin",is_tech:true,profile_picture: [])
+# Will = User.create(name:"Will", username:"will",password:"will",password_confirmation:"will", is_tech:false)
+# Hope = User.create!(name:"Hope Johnson", username:"Hope",password:"Hope",password_confirmation:"Hope",is_tech:true)
+# Ara = User.create!(name:"Ara Vernon", username:"Ara",password:"Ara",password_confirmation:"Ara",is_tech:true)
+# Jonae = User.create!(name:"Jonae Sophia", username:"Jonae",password:"Jonae",password_confirmation:"Jonae",is_tech:true)
+# Brandy = User.create!(name:"Brandy Jones", username:"Brandy",password:"Brandy",password_confirmation:"Brandy",is_tech:true)
+# Bill= User.create!(name:"Bill Bailey", username:"Bill",password:"Bill",password_confirmation:"Bill",is_tech:true)
+# Justin= User.create!(name:"Justin", username:"Justin",password:"Justin",password_confirmation:"Justin",is_tech:true)
+# Skylar= User.create!(name:"Skylar", username:"Skylar",password:"Skylar",password_confirmation:"Skylar",is_tech:true)
+# Cecelia= User.create!(name:"Cecelia", username:"Cecelia",password:"Cecelia",password_confirmation:"Cecelia",is_tech:true)
+# Isabella= User.create!(name:"Isabella", username:"Isabella",password:"Isabella",password_confirmation:"Isabella",is_tech:true)
+# Stacy= User.create!(name:"Stacy", username:"Stacy",password:"Stacy",password_confirmation:"Stacy",is_tech:true)
+# Candace= User.create!(name:"Candace", username:"Candace",password:"Candace",password_confirmation:"Candace",is_tech:true)
+# Demi= User.create!(name:"Demi", username:"Demi",password:"Demi",password_confirmation:"Demi",is_tech:true)
+# puts "have users"
 
 Photographers= Service.create!(name:"Photographers")
 Hair_Stylist=Service.create(name:"Hair Stylist")
@@ -162,12 +162,13 @@ School.create(name:"Columbia University-NY",city:"New York",state:"New York",ima
 School.create(name:"University of Pennsylvania",city:"Philadelphia",state:"Pennsylvania",image_url:"https://branding.web-resources.upenn.edu/sites/default/files/styles/1200x600_image/public/field/image/UniversityofPennsylvania_FullLogo_RGB_card.png?itok=xBxY13TC",is_hbcu: false)
 puts "We have pwi"
 
-Robin_Photos=UserService.create(name:"Headshots",description:"A headshot is a tightly cropped photo of the face, from the shoulders up. The subject is camera aware — typically looking right in the lens. Years ago, headshots were reserved for actors and models. ... A casting director can scour through hundreds of photos in search of the perfect face for the role at hand.",service_category_id:Portrait.id,price:50,user_id:Robin.id,service_id:Photographers.id,school_id:Alabama_AM_University.id)
-Robin_Hair=UserService.create(name:"Knotless",description:"knotless braids",price:250,service_category_id:Braids.id,user_id:Robin.id,service_id:Hair_Stylist.id,school_id:Benedict_College.id)
-Robin_Nail=UserService.create(name:"coffin nails",description:"3 inch min punk",price:60,service_category_id:Manicure.id,user_id:Robin.id,service_id:Nail_Tech.id,school_id:Benedict_College.id)
-Robin_makeup=UserService.create(name:"natural beat",description:"dont be a punk",price:70,service_category_id:MNatural.id,user_id:Robin.id,service_id:Makeup_Artist.id,school_id:Benedict_College.id)
-Robin_Waxing=UserService.create(name:"bikini",description:"take the hair off nasty",price:80,service_category_id:Bikini.id,user_id:Robin.id,service_id:Waxing_Tech.id,school_id:Benedict_College.id)
-Robin_Esthetician=UserService.create(name:"facials",description:"nice facials",price:100,service_category_id:Facial.id,user_id:Robin.id,service_id:Esthetician.id,school_id:Benedict_College.id)
-Robin_Barber=UserService.create(name:"lineup",description:"fix ya line",price:40,service_category_id:Maintenance.id,user_id:Robin.id,service_id:Barber.id,school_id:Benedict_College.id)
+# Robin_Photos=UserService.create(name:"Headshots",description:"A headshot is a tightly cropped photo of the face, from the shoulders up. The subject is camera aware — typically looking right in the lens. Years ago, headshots were reserved for actors and models. ... A casting director can scour through hundreds of photos in search of the perfect face for the role at hand.",service_category_id:Portrait.id,price:50,user_id:Robin.id,service_id:Photographers.id,school_id:Alabama_AM_University.id)
+# Robin_Hair=UserService.create(name:"Knotless",description:"knotless braids",price:250,service_category_id:Braids.id,user_id:Robin.id,service_id:Hair_Stylist.id,school_id:Benedict_College.id)
+# Robin_Nail=UserService.create(name:"coffin nails",description:"3 inch min punk",price:60,service_category_id:Manicure.id,user_id:Robin.id,service_id:Nail_Tech.id,school_id:Benedict_College.id)
+# Robin_makeup=UserService.create(name:"natural beat",description:"dont be a punk",price:70,service_category_id:MNatural.id,user_id:Robin.id,service_id:Makeup_Artist.id,school_id:Benedict_College.id)
+# Robin_Waxing=UserService.create(name:"bikini",description:"take the hair off nasty",price:80,service_category_id:Bikini.id,user_id:Robin.id,service_id:Waxing_Tech.id,school_id:Benedict_College.id)
+# Robin_Esthetician=UserService.create(name:"facials",description:"nice facials",price:100,service_category_id:Facial.id,user_id:Robin.id,service_id:Esthetician.id,school_id:Benedict_College.id)
+# Robin_Barber=UserService.create(name:"lineup",description:"fix ya line",price:40,service_category_id:Maintenance.id,user_id:Robin.id,service_id:Barber.id,school_id:Benedict_College.id)
+
 puts "users have services"
 puts "Done seeding"
