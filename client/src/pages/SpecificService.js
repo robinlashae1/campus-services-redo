@@ -25,7 +25,7 @@ function SpecificService({userServiceList,setLoginShow,loginShow,user,onLogin,se
         <div style={{height: "100vh"}}>
             <HomeBanner user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={serviceName} />
             <div className="fullSpecificDiv"> 
-            <a href={`http://localhost:4000/techs/${userName}`}><div id="techProfileSpace">
+            <a href={`/techs/${userName}`}><div id="techProfileSpace">
                 
                 <img src={filteredByService[0].user.profile_picture.url} className="userPic"/>
                  <h1>{filteredByService[0].user.name} / @{filteredByService[0].user.username} </h1>

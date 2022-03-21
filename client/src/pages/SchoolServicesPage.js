@@ -13,7 +13,7 @@ function SchoolServicesPage({servicesList,setLoginShow,loginShow,user,onLogin,se
             <div className="colleges-center">
               {servicesList.map((service)=>(
             //to service category page 
-            <a href={`http://localhost:4000/schools/${schoolName}/${service.name}`}><div className="services"id={`${service.name}`}>{service.name}</div ></a>
+            <a href={`/schools/${schoolName}/${service.name}`}><div className="services"id={`${service.name}`}>{service.name}</div ></a>
         ))}  
             </div>
         

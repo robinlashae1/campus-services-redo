@@ -17,7 +17,7 @@ function ServiceCategoryPage({serviceCategoryList,user,setLoginShow,loginShow,on
               {FilteredServiceCategoryList.map((category)=>(
                 <div className="categoriesContainers" id="service-categories">
             {/* to all tech page  */}
-                <a href={`http://localhost:4000/schools/${schoolName}/${serviceName}/${category.name}`}><div className="services"id={`${serviceName} ${category.name}`}>{category.name}</div ></a>
+                <a href={`/schools/${schoolName}/${serviceName}/${category.name}`}><div className="services"id={`${serviceName} ${category.name}`}>{category.name}</div ></a>
             </div>
             ))}  
             </div>
