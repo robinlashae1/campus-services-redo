@@ -30,7 +30,6 @@ function SchoolPage({schoolList,setLoginShow,loginShow,user,onLogin,setUsername,
               <div className="colleges-center">
               {searchFilter.map(school=>(
                <div className="collegeContainers">
-                {/* to school services page */}
                 <a href={`/schools/${school.name}`}><img src={school.image_url} alt={school.name} key={school.id}/></a>
               {console.log('ive been fetched')}
               </div>

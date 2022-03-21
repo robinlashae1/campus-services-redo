@@ -46,7 +46,7 @@ import ServiceCard from "../pages/ServiceCard"
             <HomeBanner onLogin={onLogin} user={user} onLogin={onLogin} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={`${serviceCategoryName}`}/>
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
             {searchFilter.map(service=>(
-                //to specific service page
+
                     <a href={`/techs/${service.user.username}/${service.name}/${service.id}`}>
                     <ServiceCard canEdit={false} className={"serviceCard"} service={service}/>
                     </a>
