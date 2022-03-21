@@ -1,8 +1,8 @@
 import {React, useState,useEffect} from "react";
 import { useParams } from "react-router-dom"
-import BottomBorder from "./BottomBorder";
-import HomeBanner from "./HomeBanner";
-import ServiceCard from "./ServiceCard";
+import BottomBorder from "../bars/BottomBorder";
+import HomeBanner from "../bars/HomeBanner";
+import ServiceCard from "../pages/ServiceCard";
 import SearchBar from "material-ui-search-bar";
 
 function TechProfilePage({userServiceList,user}) {
@@ -11,9 +11,9 @@ function TechProfilePage({userServiceList,user}) {
     const {userName} = useParams();
 
     const filterByUser = userServiceList.filter(service=>(
-        service.user.name === userName
+        service.user.username === userName
     ))
-
+console.log(filterByUser)
     const handleSearch = (e) => {
         const filtered = filterByUser.filter((service) => {
           return service.name.toLowerCase().includes(e)
@@ -22,28 +22,31 @@ function TechProfilePage({userServiceList,user}) {
       }
 
       useEffect(() => {
-        setSearchFilter(userServiceList)
+        setSearchFilter(filterByUser)
       },[userServiceList])
 
     return ( 
-      user? 
-        <div>
-          <HomeBanner title={userName} />
+      filterByUser[0]? 
+        <div style={{height: "100vh"}}>
+          <HomeBanner user={user} title={userName} />
          
           {/* <div id="techServiceSpace"> */}
+          <div style={{marginTop: "1%"}}>
             <div id="techProfileSpace">
-              <div className="userPic"/>
+            <img src={filterByUser[0].user.profile_picture.url} className="userPic"/>
               <h1>{filterByUser[0].user.name}</h1>
               <h1>{filterByUser[0].user.description}</h1>
             </div>
             <div className="displayTechService">
               <SearchBar className="search-bar techSearch gapDiv" onChange={handleSearch}/>
             {searchFilter.map(service=>(
-              <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/>
+              <a href={`/techs/${service.user.username}/${service.name}/${service.id}`} style={{textDecoration: "none", color: "black"}}>
+                <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/>
+              </a>
+              
             ))}
             </div>
-          {/* </div> */}
-          <BottomBorder/>
+            </div>
         </div>: <></>
     );
 }

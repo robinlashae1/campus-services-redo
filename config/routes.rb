@@ -7,10 +7,7 @@ resources :service_categories do
 end
 resources :services, only: [:index, :create, :show]
 resources :user_services, only: [:index, :destroy, :create, :show, :update]
-# do
-#   resources :schools, only: [:show, :index]
-#   resources :users, only: [:show, :index]
-# end
+
 post "/signup", to: "users#create"
 get "/me", to: "users#show"
 post "/login", to: "sessions#create"

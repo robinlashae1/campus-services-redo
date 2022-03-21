@@ -1,9 +1,9 @@
 import {React,useEffect,useState} from "react";
-import HomeBanner from "./HomeBanner";
-import BottomBorder from "./BottomBorder";
+import HomeBanner from "../bars/HomeBanner";
+import BottomBorder from "../bars/BottomBorder";
 import SearchBar from "material-ui-search-bar";
 
-function SchoolPage({schoolList}){
+function SchoolPage({schoolList,user}){
     const [searchFilter, setSearchFilter] = useState(schoolList);
 
     const alphabeticalFiltered= schoolList.sort(function(a,b){
@@ -24,17 +24,18 @@ function SchoolPage({schoolList}){
       },[alphabeticalFiltered])
 
     return(
-        <div className="schoolPage">
-            <HomeBanner title="ALL SCHOOLS"/>
+        <div className="schoolPage" style={{overflowX: "hidden"}}>
+            <HomeBanner user={user} title="ALL SCHOOLS"/>
               <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
-            {searchFilter.map(school=>(
-                 <div className="collegeContainers">
-                   {/* to school services page */}
-                   <a href={`http://localhost:4000/schools/${school.name}`}><img src={school.image_url} alt={school.name} key={school.id}/></a>
-                {console.log('ive been fetched')}
-                </div>
-            ))}
-            <BottomBorder/>
+              <div className="colleges-center">
+              {searchFilter.map(school=>(
+               <div className="collegeContainers">
+                {/* to school services page */}
+                <a href={`http://localhost:4000/schools/${school.name}`}><img src={school.image_url} alt={school.name} key={school.id}/></a>
+              {console.log('ive been fetched')}
+              </div>
+              ))}
+              </div>
         </div>
     )
 }

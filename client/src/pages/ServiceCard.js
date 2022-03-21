@@ -1,5 +1,5 @@
 import {React,useState} from "react";
-import UpdateService from "./UpdateService";
+import UpdateService from "../forms/UpdateService";
 function ServiceCard({service, setModalData, className,handleDelete,setModalShow}) {
 const des = service.description
 const count = 150
@@ -19,7 +19,7 @@ function flip() {
                 <div id="specificName">{service.name}</div>
                 <hr className="hrl"/>
                 <div id="specificPrice">{`$${service.price}`}</div>
-                <div id="specificDescription">{`${results}...`}</div>
+                <div style={{fontSize: "15px"}}>{`${results}...`}</div>
                 <div className="editButtons">
                 <button className="editButton" onClick={() => handleDelete(service.id)}>
                     <svg xmlns="http://www.w3.org/2000/svg" style={activeStyles} fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -41,26 +41,32 @@ function flip() {
             </>
             ) 
         } else if (className === "techServiceCard"){
+            const count1= 100
+            const newresults = des.slice(0, count1)
             return(
             <div className={`${className} serviceCard`}>
+            {/* <img src={service.image} alt={service.name}></img> */}
             <div id="specificName">{service.name}</div>
             <div id="specificPrice">{`$${service.price}`}</div>
-            <div id="specificDescription">{`${results}...`}</div>
+            <div style={{fontSize: "10px !important", marginTop: "5%",padding: "5px"}}>{`${newresults}...`}</div>
             </div>
             )
         } else if (className === "serviceCard"){
         return(
+            service?
         <div className={`${className} serviceCard`}>
+        {/* <img id="specificImage" src={service.image.url} alt={service.name}></img><br/> */}
         <div id="specificName">{service.name}</div>
         <div id="specificPrice">{`$${service.price}`}</div>
         <div id="specificDescription">{`${results}...`}</div>
-        </div>
+        </div>: <></>
         )
     }
         else if (className === "specificRender"){
             return(
                 <div className={`${className} serviceCard`}>
-                <div id="specificName">{service.name}</div> <br/>
+                {/* <div id="specificName">{service.name}</div> <br/> */}
+                <img src={service.image.url} alt={service.name} id="specificImg"></img>
                 <div id="specificPrice">{`$${service.price}`}</div>
                 <div id="specificDescription">{`${results}...`}</div>
                 </div>  

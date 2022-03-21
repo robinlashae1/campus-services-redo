@@ -1,11 +1,11 @@
 import {React, useState,useEffect} from "react";
 import { useParams } from "react-router-dom"
-import HomeBanner from "./HomeBanner";
-import BottomBorder from "./BottomBorder";
+import HomeBanner from "../bars/HomeBanner";
+import BottomBorder from "../bars/BottomBorder";
 import SearchBar from "material-ui-search-bar";
-import ServiceCard from "./ServiceCard"
+import ServiceCard from "../pages/ServiceCard"
 
- function AllTechsPage ({servicesList}){
+ function AllTechsPage ({servicesList,user}){
     const {schoolName, serviceName,serviceCategoryName} = useParams();
     const [searchFilter, setSearchFilter] = useState(servicesList);
 
@@ -34,26 +34,24 @@ import ServiceCard from "./ServiceCard"
         if (filteredByCategory < 1){
            return(
             <div className="schoolPage">
-            <HomeBanner title={`${serviceCategoryName}`}/>
+            <HomeBanner user={user} title={`${serviceCategoryName}`}/>
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
-               <h1>Sorry, there a No services here yet.<br/>
+               <h1>Sorry, there are no services here yet.<br/>
                 Be sure to check back soon, We are growing everyday!</h1>
-                <BottomBorder/>
             </div>
            )
         } else{
             return(
               <div className="schoolPage">
-            <HomeBanner title={`${serviceCategoryName}`}/>
+            <HomeBanner user={user} title={`${serviceCategoryName}`}/>
             <SearchBar className="search-bar gapDiv" onChange={handleSearch}/>
             {searchFilter.map(service=>(
                 //to specific service page
-                    <a href={`/techs/${service.user.name}/${service.name}/${service.id}`}>
+                    <a href={`/techs/${service.user.username}/${service.name}/${service.id}`}>
                     <ServiceCard canEdit={false} className={"serviceCard"} service={service}/>
                     </a>
                 )
             )}
-        <BottomBorder/>
         </div>  
             )
         }

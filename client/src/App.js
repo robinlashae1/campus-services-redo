@@ -1,19 +1,20 @@
 import './App.css';
 import {React, useEffect, useState} from "react";
-import HomePage from './HomePage';
-import SchoolPage from './SchoolPage';
-import SchoolServicesPage from './SchoolServicesPage';
-import ServiceCategoryPage from './ServiceCategoryPage';
+import HomePage from './pages/HomePage';
+import SchoolPage from './pages/SchoolPage';
+import SchoolServicesPage from './pages/SchoolServicesPage';
+import ServiceCategoryPage from './pages/ServiceCategoryPage';
 import { Route, Switch, BrowserRouter} from "react-router-dom";
-import About from './About';
-import Rescue from './Rescue';
-import Login from './Login';
-import NavBar from './NavBar';
-import TechProfilePage from './TechProfilePage';
-import AllTechsPage from './AllTechsPage';
-import PersonalProfilePage from './PersonalProfilePage';
+import About from './pages/About';
+import Rescue from './pages/Rescue';
+import Login from './forms/Login';
+import NavBar from './bars/NavBar';
+import HomeBanner from './bars/HomeBanner';
+import TechProfilePage from './pages/TechProfilePage';
+import AllTechsPage from './pages/AllTechsPage';
+import PersonalProfilePage from './pages/PersonalProfilePage';
 // import TechServicePage from './TechServicePage';
-import SpecificService from './SpecificService';
+import SpecificService from './pages/SpecificService';
 
 
 function App(){
@@ -24,6 +25,7 @@ function App(){
   const [schoolList, setschoolList] = useState([]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginShow, setLoginShow] = useState(false)
 
     useEffect(() => {
         fetch("/user_services")
@@ -68,34 +70,34 @@ function App(){
   return(
     <div className='App'>
       <BrowserRouter>
-      <NavBar user={user} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
+      {/* <HomeBanner user={user} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/> */}
       <Switch>
          <Route exact path="/login" >
             <Login user={user} onLogin={setUser} setUsername={setUsername} username={username} password={password} setPassword={setPassword}/>
           </Route>
           <Route exact path="/" >
-            <HomePage user={user}/>
+            <HomePage setUser={setUser} user={user} setLoginShow={setLoginShow} loginShow={loginShow} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/about">
-            <About/>
+            <About user={user} onLogin={setUser} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
           </Route>
           <Route exact path="/schools" >
-            <SchoolPage schoolList={schoolList}/>
+            <SchoolPage user={user} schoolList={schoolList}/>
           </Route>
           <Route exact path={`/schools/:schoolName`} >
-            <SchoolServicesPage servicesList={servicesList}/>
+            <SchoolServicesPage user={user} servicesList={servicesList}/>
           </Route>
           <Route exact path="/schools/:schoolName/:serviceName" >
-            <ServiceCategoryPage serviceCategoryList={serviceCategoryList}/>
+            <ServiceCategoryPage user={user} serviceCategoryList={serviceCategoryList}/>
           </Route>
           <Route exact path= '/schools/:schoolName/:serviceName/:serviceCategoryName'>
-            <AllTechsPage servicesList={userServiceList} user={user}/>
+            <AllTechsPage user={user} servicesList={userServiceList} user={user}/>
           </Route>
           <Route exact path="/techs/:userName" >
-            <TechProfilePage userServiceList={userServiceList} user={user}/>
+            <TechProfilePage user={user} userServiceList={userServiceList} user={user}/>
           </Route>
           <Route exact path="/techs/:userName/:serviceName/:serviceId" >
-            <SpecificService userServiceList={userServiceList} user={user}/>
+            <SpecificService user={user} userServiceList={userServiceList} user={user}/>
           </Route>
           {/* <Route exact path="/:userName/:serviceName">
             <TechServicePage/>

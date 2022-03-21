@@ -11,35 +11,33 @@ function CreateServiceForm({setCreateModalShow,setShow,show,handleClose,serviceC
   const [serviceCategoryId,setServiceCategoryId]= useState([])
   const [serviceId,setServiceId]= useState([])
   const [schoolId,setSchoolId]= useState([])
- 
-  
-  const fileSelectedHandler= event => {
-    console.log(event.target.files[0])
-  }
-  // (e) => setSelectedFile(e.target.files[0])
-  
+
 
     function handleSubmit(e){
         e.preventDefault();
+
+        const formData = new FormData()
+        formData.append('user_id', user.id)
+        formData.append('name', newName)
+        formData.append('description', newDescription)
+        formData.append('price', newPrice)
+        formData.append('service_id', serviceId)
+        formData.append('service_category_id', serviceCategoryId)
+        formData.append('school_id', schoolId)
+        formData.append('image', selectedFile)
+
         fetch(`/user_services`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            user_id: user.profile_picture.record.id, 
-            name: newName,
-            description: newDescription,
-            price: newPrice,
-            service_id: serviceId,
-            service_category_id: serviceCategoryId,
-            school_id: schoolId,
-            images: selectedFile
-          }),
+          // headers: {
+          //   "Content-Type": "application/json",
+          // },
+          body: formData
         })
           .then((r) => r.json())
-          .then((data) => console.log(data)) 
+          .then((data) => console.log(data))
+          .then(handleClose)
       }
+      
 //value={selectedFile}
     const filteredCategories = serviceCategoryList.filter(userService=>(
         userService.service.id === parseInt(serviceId)
@@ -53,38 +51,38 @@ function CreateServiceForm({setCreateModalShow,setShow,show,handleClose,serviceC
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modalBody">
-      <form onSubmit={handleSubmit} className="modal-details" className="modal-content" className="modalBody">
-          <label for="name">Name</label>
-          <input type="text"  onChange={(e)=>{setNewName(e.target.value)}}/> <br/>
-          <label for="Description">Description</label>
-          <input type="text"  onChange={(e)=>{setDescription(e.target.value)}}/><br/>
-        <label for="price">Price</label>
-          <input type="integer"  onChange={(e)=>{setPrice(e.target.value)}}/><br/>
-        <label for="ServiceCategoryId">What type of Service is this?</label>
+      <form 
+      //onSubmit={console.log("submitted")} 
+      className="modal-details" className="modal-content" className="modalBody">
+          <input type="text"  placeholder="NAME" onChange={(e)=>{setNewName(e.target.value)}}/> <br/>
+          <input type="text" placeholder="DESCRIPTION" onChange={(e)=>{setDescription(e.target.value)}}/><br/>
+          <input type="integer" placeholder="PRICE" onChange={(e)=>{setPrice(e.target.value)}}/><br/>
         <select  onChange={(e)=>{setServiceId(e.target.value)}}><br/>
+        <option>WHAT TYPE OF SERVICE IS THIS?</option>
           {servicesList.map(service=>(
               <option key={service.id} value={service.id}>{service.name}</option>
           ))}
           </select><br/>
-        <label for="ServiceCategoryId">What subCategory?</label>
+
         <select  onChange={(e)=>{setServiceCategoryId(e.target.value)}}><br/>
+        <option>WHAT SUB-CATEGORY?</option>
           {filteredCategories.map(service=>(
               <option key={service.id} value={service.id}>{service.name}</option>
           ))}
           </select><br/>
-        <label for="SchoolId">School?</label>
         <select onChange={(e)=>{setSchoolId(e.target.value)}}>
+        <option>SCHOOL</option>
         {schoolList.map(school=>(
               <option key={school.id} value={school.id}>{school.name}</option>
           ))}
           </select><br/>
-        <label for="images">images</label>
+        <label for="image">PLEASE CHOOSE AN IMAGE (REQUIRED)</label>
         <input type="file"  onChange={(e)=>{setSelectedFile(e.target.files[0])}}/>
         </form> 
         
       </Modal.Body>
        <Modal.Footer className="modalFooter">
-      <button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details" onClick={console.log("submitted")} >Submit</button>
+      <Button type="submit" data-dismiss="modal" className="button" id="modalSubmit" form="modal-details" onClick={handleSubmit} >Submit</Button>
       <Button variant="secondary" onClick={handleClose} className="button" id="modalClose">Close</Button>
       </Modal.Footer>
     </Modal> 

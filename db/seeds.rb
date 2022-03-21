@@ -17,7 +17,7 @@ Service.reset_pk_sequence
 UserService.reset_pk_sequence
 
 puts "starting"
-Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",description:"hi im robin",is_tech:true)
+Robin = User.create!(name:"Robin", username:"robin",password:"robin",password_confirmation:"robin",description:"hi im robin",is_tech:true,profile_picture: [])
 Will = User.create(name:"Will", username:"will",password:"will",password_confirmation:"will", is_tech:false)
 Hope = User.create!(name:"Hope Johnson", username:"Hope",password:"Hope",password_confirmation:"Hope",is_tech:true)
 Ara = User.create!(name:"Ara Vernon", username:"Ara",password:"Ara",password_confirmation:"Ara",is_tech:true)

@@ -1,9 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
 .App {
   text-align: center;
-  background-color: #dfdecd;
+  background-color: #cdba6e;
   margin: 0;
-  
+  font-family: century gothic;
 }
 html{
   height: 100%;
@@ -12,36 +12,159 @@ body{
   min-height: 100% ;
   background-color: #dfdecd;
 }
+/* NavBar */
+#TopBorder{
+  height: 10vh;
+  width: 100vw;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#titleBorderBackground{
+  background-color: #ffa800;
+  /* height: 100%; */
+  /* line-height: 1.5; */
+  font-weight: bold;
+  width: auto;
+  margin-left: 30vw;
+  padding-top: inherit;
+  color: #2b1500;
+  font-size: 60px;
+  text-align: center;
+  margin: auto;
+}
+.loginButton{
+  background-color: #00000000;
+  font-family: inherit;
+  border: none;
+  font-size: inherit;
+}
+#techToggle{
+  margin: auto;
+}
+/* HomePage */
 .homepage{
   text-align: center;
   padding: 0%;
   margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+#homePageHolder{
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+#firstQuaterDiv{
+  width: 30vw;
+  height: 80vh;
+  background-color: #4caf4f00;
+}
+#homePageImage{
+  width: 33vw;
   height: 100%;
-  width: 100%;
+  position: relative;
 }
 .homepage h1 {
-  font-size: 50px;
-  font-family: fantasy;
+  font-size: 30px;
   text-align: left;
-  padding-left: 20px;
+  background-color: #ffa800;
+  margin-left: -5vw;
+  position: relative;
+  height: 10%;
+  width: fit-content;
+  padding: 1vh 1.3vw 1.5vh;
 }
+.homeSlogan{
+  text-align: left;
+  width: 35vw;
+  line-height: 30px;
+  margin-top: 30vh;
+  height: 35%;
+}
+#homeSloganP{
+  font-size: 25px;
+  margin-top: 8vh;
+  text-align: center !important;
+}
+#homeSloganTop{
+  color: rgb(37, 9, 9);
+  font-size: 50px;
+  margin-left: -7vw !important;
+}
+#phraseAndButton{
+  height: fit-content;
+}
+#homeSloganBottom{
+  color: rgb(41, 5, 5);
+  font-size: 50px;
+  margin-left: -20px;
+}
+.homeSlogan a button{
+  background-color: #c37b5c; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  right: 0;
+  margin: 1.3vh 0 0 12vw 
+}
+.titleLines{
+  font-size: 80px !important;
+  text-align: left !important;
+  padding-left: 1.5vw !important;
+  padding-top: 1vh !important;
+  margin-left: 0 !important;
+}
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+/* About */
+#textSpace{
+  margin-top: 6vh ;
+  display: flex;
+  flex-direction: row ;
+  height: 65vh;
+}
+.aboutPage{
+  overflow-x: hidden;
+}
+#aboutImage{
+  /* background-color: #4CAF50; */
+  width: 90%;
+  /* background-color: #7e733567 !important; */
+  /* border: 1px solid; */
+  padding: 10px;
+  box-shadow: 2vw 2vh #ffaa0075
+}
+.aboutUs{
+  margin-right: 5vw;
+}
+.aboutUs p{
+  width: 36vw;
+  padding: 0 6vw ;
+  text-align: center;
+  font-size: 23px;
+  margin-bottom: 13vh;
+}
+
 #title-banner{
   height: 60px;
-  color: black;
+  color: rgb(48, 57, 172);
   font-size: 25px;
-  font-family: fantasy;
   text-align: left;
+  width: 98vw;
   padding-left: 20px;
   padding-top: 3px;
 }
-#TopBorder{
-  height: 100px;
-  width: 100%;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210127/pngtree-classic-texture-brown-background-image_542731.jpg")
-}
+
 #topBanner h2{
   text-align: center;
   padding-right: 30px;
@@ -50,17 +173,28 @@ body{
 .navLinks:hover{
   text-decoration: underline;
  color: rgb(0, 0, 0);
- background-color: #ECB984;
+ background-color: #c37b5c;
+}
+/* ALL COLLEGES */
+.colleges-center{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: fit-content;
+  padding-bottom: 2vh;
 }
 .collegeContainers{
-  max-height:180px;
-  max-width: 25%;
-  display: inline-block;
+  height: 22vh;
+  width: 23vw;
   overflow: hidden;
-  padding-left: 10px;
+  padding-left: 1vw;
   padding-top: 10px;
-  
 }
+/* .collegeContainers a {
+  display: flex;
+  align-items: center;
+justify-content: center;
+} */
 .categoriesContainers{
   max-height:200px;
   text-align: center;
@@ -83,42 +217,73 @@ body{
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 340px;
-  height:150px;
+  width: 100%;
+  height: 100%;
   background-color: white;
+  
 }
 .collegeContainers img:hover {
   box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
-.schoolPage{
-background-color:#dfdecd;
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 700px;
+  height: 57px !important;
 }
+
+.search-bar .MuiTextField-root {
+  width: 100%;
+}
+
+.search-bar .MuiInput-underline:before {
+  border: none;
+  border-color: blue;
+}
+
+@media (min-width: 600px) {
+  .search-bar {
+    margin: auto;
+    border-radius: 25px 25px 25px 25px;
+    margin-top: 0.5%;
+  }
+}
+
+.search-icon {
+  padding-top: 1.2%;
+  padding-right: 1%;
+  align-items: right;
+}
+
+#service-categories{
+  background-color: #c37b5c;
+  text-align: center !important;
+}
+
 .Login{
-  margin-left:70%;
-  width:20%;
-  margin-top: -110px;
+  width:100%;
   padding-bottom: 3px;
 }
 #findCollege{
   width: "140px"
 }
-.title{
-  color: #2b1500;
-  font-size: 70px;
-  padding: -50px 0;
-  line-height: 1px;
-  padding-left: 50px;
-  text-align: center;
-}
+
 #homepageLink{
   text-decoration: none;
   color: black;
 }
+
+.schoolPage{
+  width: 100vw;
+  height: 100vh;
+}
+/* ServicePage */
+
 .services{
-  height: 370px;
+  height: 40vh;
   color: rgb(255, 255, 255);
   margin-top: 10px;
-  width: 32%;
+  width: 23vw;
   margin-left: 15px;
   float: left;
   text-align: left;
@@ -167,6 +332,7 @@ div[id='Barber']{
 .gapDiv{
   height: 50px;
 }
+
 #bottomBorder{
   background-image: url("https://i0.wp.com/blackbraziltoday.com/wp-content/uploads/2020/02/bailarinas-faustao-dia-da-consciencia-negra-1-.jpeg?resize=678%2C381&ssl=1");
   height: 150px;
@@ -226,42 +392,22 @@ div[id='Barber']{
  }
 }
 #profileDiv{
-background-color: blue;
-height: 550px;
+background-color: #c37b5cad;
+height: 60vh;
 width: 45%;
 float:left;
 margin: 20px;
+display: flex;
+flex-direction: row;
 }
-.search-bar {
-  display: flex;
-  align-items: center;
-  max-width: 700px;
-  height: 57px !important;
+#personalProfilePic{
+  height: 80%;
+  margin: 6vh 2vw;
 }
-
-.search-bar .MuiTextField-root {
-  width: 100%;
-}
-
-.search-bar .MuiInput-underline:before {
-  border: none;
-  border-color: blue;
+#descriptionDiv{
+  margin: auto;
 }
 
-@media (min-width: 600px) {
-  .search-bar {
-    margin: 0 27em;
-    padding: 0 2em;
-    border-radius: 25px 25px 25px 25px;
-    margin-top: 0.5%;
-  }
-}
-
-.search-icon {
-  padding-top: 1.2%;
-  padding-right: 1%;
-  align-items: right;
-}
 .profilePic{
   border-radius: 50%;
   background-color: brown;
@@ -275,40 +421,7 @@ margin: 20px;
 .profileFile{
   margin-top: 110px;
 }
-.homeSlogan{
-  margin-left: 100px;
-  text-align: left;
-  width: 45%;
-  line-height: 30px;
-  margin-top: 90px;
-}
-#homeSloganP{
-  font-size: 25px;
-}
-#homeSloganTop{
-  color: rgb(37, 9, 9);
-  font-size: 65px;
-  margin-left: -20px;
-}
-#homeSloganBottom{
-  color: rgb(41, 5, 5);
-  font-size: 50px;
-  margin-left: -20px;
-}
-.button{
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 10px;
-}
-.button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+
 .circles{
  float:right;
  width: 30%;
@@ -342,12 +455,7 @@ margin: 20px;
   height: 25px;
   margin: 0;
 }
-.aboutUs p{
-  font-weight: bold;
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 100px;
-}
+
 .techProfileDivs{
   width: 30%;
   height: 100px;
@@ -365,6 +473,8 @@ margin: 20px;
   margin-right: 1px;
   margin-top: 10px;
   right: 10px;
+  font-family: inherit;
+  color: black;
   position: relative;
   background-color: rgb(84, 84, 141);
   margin-bottom: 50px;
@@ -522,7 +632,8 @@ div[id='Makeup Artist Other']{
   width: 100%;
 }
 #specificDescription{
-  font-size: 13px;
+  font-size: 20px !important;
+  margin-top: 2%;
   text-align: center;
 }
 #specificPrice{
@@ -557,51 +668,76 @@ div[id='Makeup Artist Other']{
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  background-color: #c37b5c;
+  margin: 7% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 45vw; /* Could be more or less, depending on screen size */
 }
 body.modal-open {
   height: 100vh;
   overflow-y: hidden;
 }
+#specificImage{
+  width: 90%;
+  height: 70%;
+  margin-top: 3%;
+  margin: auto;
+}
 .modalHeader{
-  background-color: #3a2f2f;
   font-size: 30px;
+  font-family: inherit;
   font-weight: 50px;
-  color: #dfdecd;
+  color: #000000;
   max-height: 20%;
   text-align: center;
-  height: 70px;
+  height: 8vh;
 }
 .modalBody{
-  background-color: #974141;
   font-size: 20px;
   font-weight: 50px;
-  text-align: left;
-  height: 650px;
+  text-align: center;
+  padding-top: 2vh;
+  width: auto;
+  margin: auto;
 }
 .modalBody form{
   margin-left: 30px;
   max-height: 60%;
 }
 .modalFooter{
-  background-color: #3a2f2f;
   max-height: 20%;
   text-align: center;
-  height: 70px;
+  height: 6vh;
 }
-input[type=text ], select, input[type=integer ], input[type=file] {
-  width: 98%;
-  height: 47px;
+input[type=text ], select, input[type=integer ] , input[type=password]{
+  width: 100%;
+  height: 8vh;
   padding: 12px 20px;
-  margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1.5px solid rgb(0, 0, 0);
   box-sizing: border-box;
+}
+input[type=file]{
+  width: 100%;
+  height: 8vh;
+  padding: 12px 20px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.submitButton{
+  width: 96%;
+  margin: auto;
+  margin-left: 2vw;
+  height: 80%;
+  font-family: inherit;
+  font-size: inherit;
+  
+  text-decoration: none;
+  border: 1px black solid
+}
+.submitButton:hover{
+  background-color: #d8a994;
 }
 #modalSubmit{
   margin-right: 15px;
@@ -617,11 +753,10 @@ input[type=text ], select, input[type=integer ], input[type=file] {
   height: 250px;
   margin-left: 8px;
   position: relative;
-  
 }
 .displayTechService{
-  width: 65%;
-  height: 100%;
+  width: 64vw;
+  height: 75vh;
   position: relative;
 }
 .techSearch{
@@ -643,9 +778,22 @@ max-height: 160px;
 #techServiceSpace{
   display: inline-block;
 }
+#personalProfilePage{
+  height: 100vh
+}
+.ppbutton{
+  background-color: #00000000;
+  color:#633e23;
+  border: rgb(77, 72, 72) 2px solid;
+  width: fit-content;
+  padding: 8px;
+}
+#specificImg{
+  width: 30vw;
+}
 .personalServiceCard{
 display: inline-block !important;
-background-color:rgb(145, 74, 74);
+background-color:#c37b5cb6;
 width: 40%;
 border-radius: 4px;
 height: 250px;
@@ -666,7 +814,6 @@ width: 60%;
 }
 .specificRender #specificName{
   font-size: 40px;
-  color: #4CAF50;
 }
 .specificRender #specificPrice{
   font-size: 25px;
@@ -709,10 +856,8 @@ display: inline-block;
 }
 .userPic{
   border-radius: 50%;
-  background-color: brown;
-  width: 180px;
-  height: 180px;
-  margin-left: 30%;
+  width: 12vw;
+  height: 25vh;
   margin-top: 8%;
   position: relative;
 }

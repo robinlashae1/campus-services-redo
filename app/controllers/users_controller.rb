@@ -6,15 +6,13 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :created
     end
+
     def update
-      user = User.find_by(id: params[:user_id])
-      if user
-        user.update(user_params)
-        render json: user, status: :accepted
-      else
-        render json: { error: "Not Sucessfull" }, status: :unauthorized
+      # @user = User.find_by(id: params[:user_id])
+      find_user
+        @user.update(user_params)
+        render json: @user, status: :ok
     end
-  end
 
     def show
         user = User.find_by(id: session[:user_id])
@@ -26,8 +24,11 @@ class UsersController < ApplicationController
       end
 
     private
+    def find_user
+      @user = User.find_by(id: params[:id])
+  end
 
     def user_params
-        params.permit(:username, :password, :profile_picture, :password_confirmation,:name,:profile_picture,:description, :is_tech)
+        params.permit(:username, :password, :password_confirmation, :name, :description, :id, :is_tech, :profile_picture)
     end
 end
