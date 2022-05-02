@@ -1,6 +1,5 @@
 import React from "react";
 import HomeBanner from "../bars/HomeBanner";
-import BottomBorder from "../bars/BottomBorder";
 
 function About({user,onLogin,setUsername,setLoginShow,loginShow,setPassword,username,password}){
     return(
