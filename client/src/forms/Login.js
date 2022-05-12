@@ -31,7 +31,7 @@ function Login({onLogin,username,loginDefault,password,setPassword,setUsername,u
       r.json().then((err) => setErrors(err.errors));
     }
   });}
-console.log(newIsTech)
+
   function handleSignUpSubmit() {
     const formData = new FormData()
       formData.append("username", newUsername)
@@ -53,7 +53,6 @@ console.log(newIsTech)
               }
             })}
 
-    console.log(errors)
     
     return(
     loginDefault ?   

@@ -8,7 +8,7 @@ class SchoolsController < ApplicationController
     end
     def show
         school = find_school
-        render json: school, include: :services
+        render json: school, include: ['user_service']
     end
     def destroy
         school = find_school

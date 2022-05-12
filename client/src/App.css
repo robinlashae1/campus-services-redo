@@ -183,11 +183,29 @@ body{
   flex-direction: row;
   flex-wrap: wrap;
   height: fit-content;
-  padding-bottom: 2vh;
+  height: 78vh;
+  justify-content: space-between;
+  
+}
+#sort-bar{
+  width: 25%;
+  background-color: #2b1500;
+}
+.formSelecting{
+  width: 50vw;
+  height: 50vh;
+}
+#school-render{
+  width: 74vw;
+}
+.schools-container{
+  height: 66vh;
+  width: 100%;
+  overflow: auto;
 }
 .collegeContainers{
-  height: 22vh;
-  width: 23vw;
+  height: 20vh;
+  width: 30%;
   overflow: hidden;
   padding-left: 1vw;
   padding-top: 10px;

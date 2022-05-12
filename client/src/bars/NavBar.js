@@ -41,7 +41,7 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
           About
         </NavLink>
         <NavLink className="navLinks"
-          to="/schools"
+          to="/findMySchools"
           exact
           style={linkStyles}
         >
@@ -80,7 +80,7 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
           About
         </NavLink>
         <NavLink className="navLinks"
-          to="/schools"
+          to="/findMySchools"
           exact
           style={linkStyles}
         >
@@ -133,7 +133,7 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
         About
       </NavLink>
       <NavLink className="navLinks"
-        to="/schools"
+        to="/findMySchools"
         exact
         style={linkStyles}
       >
@@ -173,7 +173,7 @@ function NavBar({setPassword,setLoginShow,loginShow,setUsername,user,locationPag
           About
         </NavLink>
         <NavLink className="navLinks"
-          to="/schools"
+          to="/findMySchools"
           exact
           style={linkStyles}
         >

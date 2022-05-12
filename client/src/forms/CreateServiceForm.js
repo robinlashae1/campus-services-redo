@@ -53,7 +53,7 @@ function CreateServiceForm({setCreateModalShow,setShow,show,handleClose,serviceC
       <Modal.Body className="modalBody">
       <form 
       //onSubmit={console.log("submitted")} 
-      className="modal-details" className="modal-content" className="modalBody">
+      className="modal-details" className="modal-content modalBody">
           <input type="text"  placeholder="NAME" onChange={(e)=>{setNewName(e.target.value)}}/> <br/>
           <input type="text" placeholder="DESCRIPTION" onChange={(e)=>{setDescription(e.target.value)}}/><br/>
           <input type="integer" placeholder="PRICE" onChange={(e)=>{setPrice(e.target.value)}}/><br/>

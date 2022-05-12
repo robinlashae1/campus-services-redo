@@ -21,7 +21,7 @@ import BottomBorder from "../bars/BottomBorder";
              <h1 id="homeSloganBottom">Lets get you started</h1> 
              <div id="phraseAndButton">
              <p id="homeSloganP">Let us help connect you to the people you're looking for...<br/> Anywhere, Anytime. We got you!</p>
-        <a href="/schools">
+        <a href="/findMySchools">
             <button className="button bottombuttonExtend"type="button">Find Your School</button>
         </a>
          </div>
@@ -44,7 +44,7 @@ import BottomBorder from "../bars/BottomBorder";
          <h1 id="homeSloganBottom">Wherever You are.</h1>
          <div id="phraseAndButton">
              <p id="homeSloganP">Let us help connect you to the people you're looking for...<br/> Anywhere, Anytime. We got you!</p>
-        <a href="/schools">
+        <a href="/findMySchools">
             <button className="button bottombuttonExtend"type="button">Find Your School</button>
         </a>
          </div>

@@ -1,6 +1,6 @@
 class UserServiceSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers 
-  attributes :id, :name, :description, :price, :user_id, :service_id, :school_id, :service_category_id, :image
+  attributes :id, :name, :description, :price, :image
 
 belongs_to :user
 belongs_to :service
