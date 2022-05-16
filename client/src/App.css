@@ -202,6 +202,9 @@ body{
   height: 66vh;
   width: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .collegeContainers{
   height: 20vh;
@@ -300,20 +303,31 @@ justify-content: center;
 /* ServicePage */
 
 .services{
-  height: 40vh;
+  height: 25vh;
   color: rgb(255, 255, 255);
   margin-top: 10px;
-  width: 23vw;
+  width: 16vw;
   margin-left: 15px;
   float: left;
   text-align: left;
-  font-size: 40px;
+  font-size: 30px;
   text-indent: 5px;
   background-position: center;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
   background-size: contain;
   background-size: cover;
+}
+.category{
+  width: 25%;
+  background-color: #2b1500;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border-radius: 15px;
+  font-size: 30px;
+  height: fit-content;
+  padding: 5vh 2vw;
+  margin: 1vh;
 }
 #Photographers{
   background-image: url("https://www.adorama.com/alc/wp-content/uploads/2017/07/photographer-working-studio-feature.jpg");

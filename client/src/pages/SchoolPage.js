@@ -1,7 +1,6 @@
 import {React,useEffect,useState} from "react";
 import HomeBanner from "../bars/HomeBanner";
-import BottomBorder from "../bars/BottomBorder";
-import SearchBar from "material-ui-search-bar";
+import ServiceCard from "./ServiceCard";
 import { useSelector} from 'react-redux';
 import {chooseSchool, chooseService, chooseServiceCategory} from "../slices/schoolsSlices.js"
 
@@ -9,89 +8,88 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
     const [selectedSchool, setSelectedSchool] = useState(null);
     const [serviceId,setServiceId]= useState([])
     const storeState = useSelector(state => state)
-    console.log(storeState.schools.servicesList)
+    console.log(storeState)
+   
 
     const filteredCategories = storeState.schools.serviceCategoryList.filter(userService=>(
       userService.service.id === parseInt(serviceId)
-      )) 
-     
-    // const alphabeticalFiltered= schoolList.sort(function(a,b){
-    //   if(a.name < b.name) { return -1; }
-    // if(a.name > b.name) { return 1; }
-    // return 0;
-    // })
+      ))
 
-    // const handleSearch = (e) => {
-    //     const filtered = alphabeticalFiltered.filter((school) => {
-    //       return school.name.toLowerCase().includes(e)
-    //     })
-    //     setSearchFilter(filtered)
-    //   }
+      const filteredBySchools = storeState.schools.userServiceList.filter( services => (
+        services.school.name == storeState.schools.schoolName 
+       )) 
+       const filteredSer = filteredBySchools.filter( services => (
+        services.service.name == storeState.schools.servicePick 
+       )) 
+       const filteredCat = filteredSer.filter( services => (
+        services.service_category.name == storeState.schools.serviceCategoryPick
+       ))
 
     //   useEffect(() => {
     //     setSearchFilter(alphabeticalFiltered)
     //   },[alphabeticalFiltered])
     
-    function renderSchools(){
-      let services = storeState.schools.userServiceList.filter(services => (
-       services.school.name === storeState.schools.schoolName 
-       && services.service.name === storeState.schools.servicePick 
-       && services.service_category.name === storeState.schools.serviceCategoryPick
-      ))
-      if (services){
-        const chosenServices = services.map((service) => (
-           <h1>{service.name}</h1>
-        ))
+    function renderSchools(services){
+      if (services[0]){
         return (
-          chosenServices
+          <div className="schools-container">
+            {services.map(service =>
+              {return <ServiceCard service={service} className="serviceCard"/>
+            })}
+          </div>
         )
       }
+      else {
+          return (
+          <div className="schools-container">
+            <h1>
+              Sorry, no services like this are offered yet. But we are growing everyday. 
+            </h1>
+          </div>
+          )
+        }
     }
 
       function handleSchoolSearch(state){
-        if (state.schools.schoolName === ""){
+        if (state.schools.schoolName.length < 1){
           return (
             <div>
               <h1>Please Choose a School</h1>
-              <div className="schools-container">
+              <div className="schools-container">``
                 {state.schools.schoolList.map((school) =>
-                      <img src={school.image_url} onClick={(e) => store.dispatch(chooseSchool(e.target.value))}
-                      key={school.id} value={school.name} className="collegeContainers"/>
+                      <img src={school.image_url} onClick={() => store.dispatch(chooseSchool(school.name))}
+                      key={school.id}  className="collegeContainers"/>
                     )}
               </div>
             </div>
               )
-        } else if (state.schools.servicePick === ""){
+        } else if (state.schools.servicePick.length < 1){
           return (
           <div>
               <h1>Please Choose a Service</h1>
                 <div className="schools-container">
                   {state.schools.servicesList.map((school) => 
-                  
-                    <img src={school.image_url} onClick={(e) => {store.dispatch(chooseService(school.name)); console.log(e.target.alt)}}
-                    key={school.id} value={school.id} alt={school.name} />
+                    <div src={school.image_url} onClick={() => {store.dispatch(chooseService(school.name)); 
+                      setServiceId(school.id)}}
+                    key={school.id} value={school.id} className="services"id={`${school.name}`}>{school.name}</div >
                   )}
                 </div>
             </div>
           )
         }
-        else if (state.schools.serviceCategoryPick === ""){
+        else if (state.schools.serviceCategoryPick.length < 1){
           return (
           <div>
               <h1>Please Choose a Category</h1>
-                <form className="formSelecting">
-                  <select onChange={(e) => store.dispatch(chooseServiceCategory(e.target.value))}>
-                    <option>Please Select A Category</option>
+              <div className="schools-container">
                     {filteredCategories.map((school) => 
-                      <option  key={school.id} value={school.name}>{school.name}</option>
+                      <div onClick={() => {store.dispatch(chooseServiceCategory(school.name)); setSelectedSchool("hi")}}
+                      key={school.id}  className="category">{school.name}</div>
                     )}
-                  </select>
-                </form>
+                </div>
             </div>
           )
-        } else {
-          renderSchools()
-        }
+        } 
       }
 
     return(
@@ -100,7 +98,7 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
               <div className="colleges-center">
                 <div id="sort-bar"></div>
                 <div id="school-render">
-                      {selectedSchool? renderSchools() : handleSchoolSearch(storeState)}
+                      {selectedSchool? renderSchools(filteredCat) : handleSchoolSearch(storeState)}
                 </div>
               </div>
         </div>

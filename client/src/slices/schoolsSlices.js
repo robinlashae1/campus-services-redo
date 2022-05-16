@@ -9,9 +9,12 @@ const slice = createSlice({
         servicesList: [],
         userServiceList: [],
         schoolList: [],
-        schoolName: "",
-        servicePick: "",
-        serviceCategoryPick: ""
+        schoolName: [],
+        servicePick: [],
+        serviceCategoryPick: [],
+        schoolPickId: [],
+        servicePickId: [],
+        serviceCategoryPickId: []
     },
     reducers: {
         setRedUser: (state, action) => {
