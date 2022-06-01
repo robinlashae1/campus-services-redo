@@ -1,4 +1,5 @@
 import {React,useState} from "react";
+import { Card, CardActions, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import UpdateService from "../forms/UpdateService";
 function ServiceCard({service, setModalData,onLogin,setUsername,setPassword,username,password,setLoginShow,loginShow,className,handleDelete,setModalShow}) {
 const des = service.description
@@ -71,7 +72,40 @@ function flip() {
                 <div id="specificDescription">{`${results}...`}</div>
                 </div>  
              )
-}}
+}
+else if (className === "s"){
+    console.log(service)
+    return(
+        <Card sx={{ maxWidth: 345, height: "45vh"}}>
+        <CardMedia 
+        style={{height:140}}
+          component="img"
+          alt={service.name}
+          image={service.image? service.image :
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png"}
+        />
+        <CardContent style={{display: "flex", flexDirection: "column"}}>
+            <div>
+              <Typography gutterBottom variant="h5" component="div" id="service-name">
+          {service.name}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div" id="service-price">
+          ${service.price}
+          </Typography>  
+            </div>
+          
+          <Typography variant="body2" color="text.secondary">
+          {`${results}...`}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Book</Button>
+          <Button size="small">Learn More</Button>
+        </CardActions>
+      </Card>
+    )
+}
+}
 
 export default ServiceCard;
 const activeStyles={

@@ -898,3 +898,11 @@ display: inline-block;
   margin-top: 8%;
   position: relative;
 }
+
+#service-name{
+  float: left;
+  font-weight: bold
+}
+#service-price{
+  float: right;
+}

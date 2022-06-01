@@ -53,5 +53,6 @@ gem 'activerecord-reset-pk-sequence'
 gem "rename"
 gem "image_processing", ">= 1.2"
 gem "aws-sdk-s3", require: false
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 

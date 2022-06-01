@@ -34,7 +34,7 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
         return (
           <div className="schools-container">
             {services.map(service =>
-              {return <ServiceCard service={service} className="serviceCard"/>
+              {return <ServiceCard service={service} className="s"/>
             })}
           </div>
         )
@@ -45,6 +45,7 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
             <h1>
               Sorry, no services like this are offered yet. But we are growing everyday. 
             </h1>
+            <button onClick={()=> {window.location.reload()}}> Restart Search</button>
           </div>
           )
         }
@@ -55,7 +56,7 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
           return (
             <div>
               <h1>Please Choose a School</h1>
-              <div className="schools-container">``
+              <div className="schools-container">
                 {state.schools.schoolList.map((school) =>
                       <img src={school.image_url} onClick={() => store.dispatch(chooseSchool(school.name))}
                       key={school.id}  className="collegeContainers"/>
