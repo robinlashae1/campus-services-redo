@@ -2,38 +2,31 @@ import {React,useEffect,useState} from "react";
 import HomeBanner from "../bars/HomeBanner";
 import ServiceCard from "./ServiceCard";
 import { useSelector} from 'react-redux';
-import {chooseSchool, chooseService, chooseServiceCategory} from "../slices/schoolsSlices.js"
+import {chooseSchool, chooseService, chooseServiceCategory, setSchoolPickId} from "../slices/schoolsSlices.js"
 
 function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword,username,password,store}){
     const [selectedSchool, setSelectedSchool] = useState(null);
     const [serviceId,setServiceId]= useState([])
     const storeState = useSelector(state => state)
-    console.log(storeState)
-   
 
-    const filteredCategories = storeState.schools.serviceCategoryList.filter(userService=>(
-      userService.service.id === parseInt(serviceId)
-      ))
-
-      const filteredBySchools = storeState.schools.userServiceList.filter( services => (
-        services.school.name == storeState.schools.schoolName 
-       )) 
-       const filteredSer = filteredBySchools.filter( services => (
-        services.service.name == storeState.schools.servicePick 
-       )) 
-       const filteredCat = filteredSer.filter( services => (
-        services.service_category.name == storeState.schools.serviceCategoryPick
-       ))
-
-    //   useEffect(() => {
-    //     setSearchFilter(alphabeticalFiltered)
-    //   },[alphabeticalFiltered])
     
-    function renderSchools(services){
-      if (services[0]){
+    
+        function renderSchools(state){
+          console.log(state)
+        const filteredBySchools = state.schools.userServiceList.filter( services => (
+          services.school.name == storeState.schools.schoolName 
+         )) 
+         const filteredSer = filteredBySchools.filter( services => (
+          services.service.name == storeState.schools.servicePick 
+         )) 
+         const filteredCat = filteredSer.filter( services => (
+          services.service_category.name == storeState.schools.serviceCategoryPick
+         ))
+
+      if (filteredCat[0]){
         return (
           <div className="schools-container">
-            {services.map(service =>
+            {filteredCat.map(service =>
               {return <ServiceCard service={service} className="s"/>
             })}
           </div>
@@ -52,6 +45,10 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
     }
 
       function handleSchoolSearch(state){
+        const filteredCategories = storeState.schools.serviceCategoryList.filter(userService=>(
+          userService.service.id === parseInt(serviceId)
+          ))
+          
         if (state.schools.schoolName.length < 1){
           return (
             <div>
@@ -99,7 +96,7 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
               <div className="colleges-center">
                 <div id="sort-bar"></div>
                 <div id="school-render">
-                      {selectedSchool? renderSchools(filteredCat) : handleSchoolSearch(storeState)}
+                      {selectedSchool? renderSchools(storeState) : handleSchoolSearch(storeState)}
                 </div>
               </div>
         </div>

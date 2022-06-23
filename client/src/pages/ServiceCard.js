@@ -1,11 +1,16 @@
 import {React,useState} from "react";
 import { Card, CardActions, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import UpdateService from "../forms/UpdateService";
-function ServiceCard({service, setModalData,onLogin,setUsername,setPassword,username,password,setLoginShow,loginShow,className,handleDelete,setModalShow}) {
+import { useHistory } from "react-router-dom";
+import { useSelector} from 'react-redux';
+
+function ServiceCard({service, setModalData,chooseID,onLogin,setUsername,setPassword,username,password,setLoginShow,loginShow,className,handleDelete,setModalShow}) {
 const des = service.description
 const count = 150
 const results = des.slice(0, count)
 const [flipped,setFlipped]= useState(false)
+let history = useHistory()
+const storeState = useSelector(state => state)
 
 function flip() {
     setFlipped(!flipped);
@@ -45,7 +50,7 @@ function flip() {
             const count1= 100
             const newresults = des.slice(0, count1)
             return(
-            <div className={`${className} serviceCard`}>
+            <div className={`${className} serviceCard`} onClick={()=> {history.push({pathname: '/findMySchool/listing', state: [service.id]})}}>
             {/* <img src={service.image} alt={service.name}></img> */}
             <div id="specificName">{service.name}</div>
             <div id="specificPrice">{`$${service.price}`}</div>
@@ -67,14 +72,13 @@ function flip() {
             return(
                 <div className={`${className} serviceCard`}>
                 {/* <div id="specificName">{service.name}</div> <br/> */}
-                <img src={service.image.url} alt={service.name} id="specificImg"></img>
+                <img src={service.image? service.image.url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1bLLApghqwH3Gp6_VzFEbJ7wSriYH-s-weOlPfLRH_e0D702cEl_VTa5lImTN3LTVfNA&usqp=CAU" } alt={service.name} id="specificImg"></img>
                 <div id="specificPrice">{`$${service.price}`}</div>
                 <div id="specificDescription">{`${results}...`}</div>
                 </div>  
              )
 }
 else if (className === "s"){
-    console.log(service)
     return(
         <Card sx={{ maxWidth: 345, height: "45vh"}}>
         <CardMedia 
@@ -100,7 +104,7 @@ else if (className === "s"){
         </CardContent>
         <CardActions>
           <Button size="small">Book</Button>
-          <Button size="small">Learn More</Button>
+          <Button size="small" onClick={()=> {history.push({pathname: '/findMySchool/listing', state: [service.id]})}}>Learn More</Button>
         </CardActions>
       </Card>
     )

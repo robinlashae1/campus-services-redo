@@ -5,14 +5,20 @@ class UserServicesController < ApplicationController
     def index
         render json: UserService.all
     end
+
     def create
         services = UserService.create!(uService_params)
         render json: services, status: :created
     end
     def show
-        service = find_uService
-        render json: service, include: ['school', 'service', 'user']
+        service = UserService.find_by(school_id: params[:id])
+       render json: service
+        # by_school = UserService.find_by(school_id: params[:id])
+        # by_service = by_school.find_by(service_id: params[:id])
+        # by_category = by_service.find_by(service_category_id: params[:id])
+        # render json: by_category
     end
+
     def update
         find_uService
         if 
@@ -21,6 +27,13 @@ class UserServicesController < ApplicationController
         else 
             render_unprocessable_entity_response
         end
+    end
+
+    def find_by_school
+        by_school = UserService.find_by(school_id: params[:id])
+        by_service = by_school.find_by(service_id: params[:id])
+        by_category = by_service.find_by(service_category_id: params[:id])
+        render json: by_category
     end
     
     def destroy
@@ -36,6 +49,7 @@ class UserServicesController < ApplicationController
     def find_uService
         @service = UserService.find_by(id: params[:id])
     end
+
     def render_not_found_response
         render json: { error: "This service can not found"}, status: :not_found
     end

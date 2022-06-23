@@ -1,5 +1,5 @@
 import {React, useState,useEffect} from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import BottomBorder from "../bars/BottomBorder";
 import HomeBanner from "../bars/HomeBanner";
 import ServiceCard from "../pages/ServiceCard";
@@ -7,48 +7,65 @@ import SearchBar from "material-ui-search-bar";
 
 function TechProfilePage({userServiceList,setLoginShow,loginShow,user,onLogin,setUsername,setPassword,username,password}) {
     // const [serviceList, setServiceList] = useState([]);
-    const [searchFilter, setSearchFilter] = useState(userServiceList);
+    const [specificTech, setSpecificTech]= useState(null)
+    const [searchFilter, setSearchFilter] = useState([]);
+    
     const {userName} = useParams();
+    const history = useHistory();
+    
 
-    const filterByUser = userServiceList.filter(service=>(
-        service.user.username === userName
-    ))
-console.log(filterByUser)
+    useEffect(() => {
+      fetch(`/users/${history.location.state[0].id}`)
+      .then((r) => r.json())
+      .then((tech) => {setSpecificTech(tech); setSearchFilter(tech.user_services)})
+    }, []);
+
+
     const handleSearch = (e) => {
-        const filtered = filterByUser.filter((service) => {
+        const filtered = specificTech.user_services.filter((service) => {
           return service.name.toLowerCase().includes(e)
         })
         setSearchFilter(filtered)
       }
+      
+      // useEffect(() => {
+      //   setSearchFilter(specificTech.user_services)
+      // },[specificTech])
 
-      useEffect(() => {
-        setSearchFilter(filterByUser)
-      },[userServiceList])
+      function renderService(services){
+        let serviceArr = []
+        for(let x = 0; x < services.length; x++){
+          serviceArr.push(services[x])
+        }
+        return (serviceArr.map(service => {
+         return( 
+             <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/> )
+        }))
+       }
 
     return ( 
-      filterByUser[0]? 
+      specificTech? 
         <div style={{height: "100vh"}}>
-          <HomeBanner setUsername={setUsername} onLogin={onLogin} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={userName} />
+          
          
           {/* <div id="techServiceSpace"> */}
           <div style={{marginTop: "1%"}}>
             <div id="techProfileSpace">
-            <img src={filterByUser[0].user.profile_picture.url} className="userPic"/>
-              <h1>{filterByUser[0].user.name}</h1>
-              <h1>{filterByUser[0].user.description}</h1>
+            <img src={specificTech.profile_picture? specificTech.user.profile_picture: 
+            "https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
+            } className="userPic"/>
+              <h1>{specificTech.name}</h1>
+              <h1>{specificTech.description}</h1>
             </div>
             <div className="displayTechService">
               <SearchBar className="search-bar techSearch gapDiv" onChange={handleSearch}/>
-            {searchFilter.map(service=>(
-              <a href={`/techs/${service.user.username}/${service.name}/${service.id}`} style={{textDecoration: "none", color: "black"}}>
-                <ServiceCard canEdit={false} className={"techServiceCard"} service={service}/>
-              </a>
-              
-            ))}
+            {renderService(searchFilter)}
             </div>
             </div>
-        </div>: <></>
+        </div>: 
+        <></>
     );
 }
 
 export default TechProfilePage;
+//<HomeBanner setUsername={setUsername} onLogin={onLogin} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} user={user} title={userName} />

@@ -5,6 +5,15 @@ resources :users
 resources :service_categories do
   resources :user_services
 end
+
+# resources :schools do
+#   resources :services do
+#     resources :service_categories do
+#       resources :user_services
+#     end
+#   end
+# end
+
 resources :services, only: [:index, :create, :show]
 resources :user_services, only: [:index, :destroy, :create, :show, :update]
 

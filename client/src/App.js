@@ -7,6 +7,7 @@ import { Route, Switch, BrowserRouter} from "react-router-dom";
 import About from './pages/About';
 import Rescue from './pages/Rescue';
 import Login from './forms/Login';
+import TechProfilePage from "./pages/TechProfilePage"
 import PersonalProfilePage from './pages/PersonalProfilePage';
 import SpecificService from './pages/SpecificService';
 import store from "./store"
@@ -60,7 +61,6 @@ function App(){
                 ));}})
               }
 
-  console.log(store.getState())
   return(
     <div className='App'>
       <BrowserRouter>
@@ -81,6 +81,12 @@ function App(){
           <Route exact path='/myProfile'>
             <PersonalProfilePage onLogin={setUser} setLoginShow={setLoginShow} loginShow={loginShow} handleDelete={handleDelete}  setUsername={setUsername} user={user} setUser={setUser}/>
           </Route>
+          <Route exact path='/findMySchool/listing'>
+            <SpecificService />
+          </Route>
+          <Route exact path="/techs/:username">
+            <TechProfilePage />
+          </Route>
           <Route>
             <Rescue/>
           </Route>
@@ -90,23 +96,3 @@ function App(){
   )}
 
 export default App;
-
-
- {/* <Route exact path={`/schools/:schoolName`} >
-            <SchoolServicesPage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} servicesList={servicesList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
-          </Route>
-          <Route exact path="/schools/:schoolName/:serviceName" >
-            <ServiceCategoryPage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} serviceCategoryList={serviceCategoryList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
-          </Route>
-          <Route exact path= '/schools/:schoolName/:serviceName/:serviceCategoryName'>
-            <AllTechsPage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} servicesList={userServiceList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
-          </Route>
-          <Route exact path="/techs/:userName" >
-            <TechProfilePage setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} userServiceList={userServiceList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
-          </Route>
-          <Route exact path="/techs/:userName/:serviceName/:serviceId" >
-            <SpecificService setLoginShow={setLoginShow} onLogin={setUser} loginShow={loginShow} user={user} userServiceList={userServiceList} setUsername={setUsername} setPassword={setPassword} username={username} password={password}/>
-          </Route> */}
-          {/* <Route exact path="/:userName/:serviceName">
-            <TechServicePage/>
-          </Route> */}

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        user = User.find_by(id: session[:user_id])
+        user = find_user
         if user
           render json: user, include: ['user_services','school']
         else

@@ -40,13 +40,16 @@ const slice = createSlice({
         },
         setSchoolList: (state, action) => {
             state.schoolList = action.payload
+        },
+        setSchoolPickId: (state, action) => {
+            state.schoolPickId = action.payload
         }
     }
 })
 
 // actions
-const { setRedUser, chooseSchool, chooseService, chooseServiceCategory, setServiceList, setServiceCategoryList,setUserServiceList,setSchoolList} = slice.actions
+const { setRedUser, setSchoolPickId, chooseSchool, chooseService, chooseServiceCategory, setServiceList, setServiceCategoryList,setUserServiceList,setSchoolList} = slice.actions
 
 // exports
-export {setRedUser, chooseSchool, chooseService, chooseServiceCategory, setServiceList, setServiceCategoryList,setUserServiceList,setSchoolList }
+export {setRedUser, setSchoolPickId, chooseSchool, chooseService, chooseServiceCategory, setServiceList, setServiceCategoryList,setUserServiceList,setSchoolList }
 export default slice.reducer
