@@ -6,18 +6,11 @@ resources :service_categories do
   resources :user_services
 end
 
-# resources :schools do
-#   resources :services do
-#     resources :service_categories do
-#       resources :user_services
-#     end
-#   end
-# end
-
 resources :services, only: [:index, :create, :show]
 resources :user_services, only: [:index, :destroy, :create, :show, :update]
 
 post "/signup", to: "users#create"
+post "/quiz_results", to: "user_services#query"
 get "/me", to: "users#show"
 post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"

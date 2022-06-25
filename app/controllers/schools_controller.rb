@@ -1,6 +1,6 @@
 class SchoolsController < ApplicationController
     def index
-        render json: School.each_record
+        render json: School.in_batches(of: 10).each_record
     end
     def create
         school = @current_user.school.create!(school_params)

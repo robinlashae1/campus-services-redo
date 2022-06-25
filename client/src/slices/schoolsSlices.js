@@ -9,25 +9,22 @@ const slice = createSlice({
         servicesList: [],
         userServiceList: [],
         schoolList: [],
-        schoolName: [],
-        servicePick: [],
-        serviceCategoryPick: [],
-        schoolPickId: [],
-        servicePickId: [],
-        serviceCategoryPickId: []
+        schoolId: [],
+        serviceId: [],
+        serviceCategoryId: []
     },
     reducers: {
         setRedUser: (state, action) => {
             state.user = action.payload
         },
         chooseSchool: (state, action) => {
-            state.schoolName = action.payload
+            state.schoolId = action.payload
         },
         chooseService: (state, action) => {
-            state.servicePick = action.payload
+            state.serviceId = action.payload
         },
         chooseServiceCategory: (state, action) => {
-            state.serviceCategoryPick = action.payload
+            state.serviceCategoryId = action.payload
         },
         setServiceList:(state, action) => {
             state.servicesList = action.payload
@@ -40,9 +37,6 @@ const slice = createSlice({
         },
         setSchoolList: (state, action) => {
             state.schoolList = action.payload
-        },
-        setSchoolPickId: (state, action) => {
-            state.schoolPickId = action.payload
         }
     }
 })

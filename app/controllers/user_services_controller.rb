@@ -3,7 +3,7 @@ class UserServicesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        render json: UserService.all
+        render json: UserService.in_batches(of: 20).each_record
     end
 
     def create
@@ -17,6 +17,16 @@ class UserServicesController < ApplicationController
         # by_service = by_school.find_by(service_id: params[:id])
         # by_category = by_service.find_by(service_category_id: params[:id])
         # render json: by_category
+    end
+
+    def query
+        find_uQueries
+        if @services
+            render json: @services
+       else
+        
+       render_unprocessable_entity_response
+        end
     end
 
     def update
@@ -48,6 +58,9 @@ class UserServicesController < ApplicationController
     end
     def find_uService
         @service = UserService.find_by(id: params[:id])
+    end
+    def find_uQueries
+       @services = UserService.where("school_id = ? AND service_id = ? AND  service_category_id = ?" , params[:school_id], params[:service_id], params[:service_category_id])
     end
 
     def render_not_found_response

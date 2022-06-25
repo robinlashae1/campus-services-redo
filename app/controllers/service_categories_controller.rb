@@ -1,6 +1,6 @@
 class ServiceCategoriesController < ApplicationController
     def index
-        render json: ServiceCategory.all
+        render json: ServiceCategory.in_batches(of: 10).each_record
     end
     def create
         serviceCategory = ServiceCategory.create!(school_params)

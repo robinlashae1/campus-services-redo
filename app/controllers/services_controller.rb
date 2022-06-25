@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
      def index
-        render json: Service.all
+        render json: Service.in_batches(of: 10).each_record
     end
     def create
         service = @current_user.service.create!(service_params)

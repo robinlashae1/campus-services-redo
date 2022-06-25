@@ -10,7 +10,6 @@ function TechProfilePage({userServiceList,setLoginShow,loginShow,user,onLogin,se
     const [specificTech, setSpecificTech]= useState(null)
     const [searchFilter, setSearchFilter] = useState([]);
     
-    const {userName} = useParams();
     const history = useHistory();
     
 
@@ -27,10 +26,6 @@ function TechProfilePage({userServiceList,setLoginShow,loginShow,user,onLogin,se
         })
         setSearchFilter(filtered)
       }
-      
-      // useEffect(() => {
-      //   setSearchFilter(specificTech.user_services)
-      // },[specificTech])
 
       function renderService(services){
         let serviceArr = []
@@ -44,26 +39,28 @@ function TechProfilePage({userServiceList,setLoginShow,loginShow,user,onLogin,se
        }
 
     return ( 
-      specificTech? 
         <div style={{height: "100vh"}}>
-          
+          <HomeBanner 
+          //onLogin={onLogin} setLoginShow={setLoginShow} loginShow={loginShow} user={user} 
+          title= "techs"
+          //{`${serviceCategoryName}`}
+          />
          
           {/* <div id="techServiceSpace"> */}
           <div style={{marginTop: "1%"}}>
-            <div id="techProfileSpace">
+            { specificTech? <div id="techProfileSpace">
             <img src={specificTech.profile_picture? specificTech.user.profile_picture: 
             "https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"
             } className="userPic"/>
               <h1>{specificTech.name}</h1>
               <h1>{specificTech.description}</h1>
-            </div>
+            </div> : <div className="loadingDiv" /> }
             <div className="displayTechService">
               <SearchBar className="search-bar techSearch gapDiv" onChange={handleSearch}/>
             {renderService(searchFilter)}
             </div>
             </div>
-        </div>: 
-        <></>
+        </div>
     );
 }
 

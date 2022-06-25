@@ -7,28 +7,40 @@ import {chooseSchool, chooseService, chooseServiceCategory, setSchoolPickId} fro
 function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword,username,password,store}){
     const [selectedSchool, setSelectedSchool] = useState(null);
     const [serviceId,setServiceId]= useState([])
+    const [servicesArray, setServicesArray] = useState(null)
     const storeState = useSelector(state => state)
+    console.log(storeState)
 
+    function query(){
+          fetch('/quiz_results', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              school_id: parseInt(storeState.schools.schoolId),
+              service_id: parseInt(storeState.schools.serviceId),
+              service_category_id: parseInt(storeState.schools.serviceCategoryId)
+            }),
+          }).then((r) => {
+            if (r.ok)
+            { r.json().then((r) => setServicesArray(r))}
+            else {
+              r.json().then((err) => setServicesArray([]))
+            }
+            // .then(handleClose);
+        }
+  )
+}
     
-    
-        function renderSchools(state){
-          console.log(state)
-        const filteredBySchools = state.schools.userServiceList.filter( services => (
-          services.school.name == storeState.schools.schoolName 
-         )) 
-         const filteredSer = filteredBySchools.filter( services => (
-          services.service.name == storeState.schools.servicePick 
-         )) 
-         const filteredCat = filteredSer.filter( services => (
-          services.service_category.name == storeState.schools.serviceCategoryPick
-         ))
-
-      if (filteredCat[0]){
+        function renderSchools(arr){
+        console.log(arr)
+      if (arr[0]){
         return (
           <div className="schools-container">
-            {filteredCat.map(service =>
-              {return <ServiceCard service={service} className="s"/>
-            })}
+            {arr.map(service =>
+            {return (<ServiceCard service={service} className="s"/>)}
+            )}
           </div>
         )
       }
@@ -45,29 +57,26 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
     }
 
       function handleSchoolSearch(state){
-        const filteredCategories = storeState.schools.serviceCategoryList.filter(userService=>(
-          userService.service.id === parseInt(serviceId)
-          ))
           
-        if (state.schools.schoolName.length < 1){
+        if (state.schools.schoolId.length < 1){
           return (
             <div>
               <h1>Please Choose a School</h1>
               <div className="schools-container">
                 {state.schools.schoolList.map((school) =>
-                      <img src={school.image_url} onClick={() => store.dispatch(chooseSchool(school.name))}
+                      <img src={school.image_url} onClick={() => store.dispatch(chooseSchool(school.id))}
                       key={school.id}  className="collegeContainers"/>
                     )}
               </div>
             </div>
               )
-        } else if (state.schools.servicePick.length < 1){
+        } else if (state.schools.serviceId.length < 1){
           return (
           <div>
               <h1>Please Choose a Service</h1>
                 <div className="schools-container">
                   {state.schools.servicesList.map((school) => 
-                    <div src={school.image_url} onClick={() => {store.dispatch(chooseService(school.name)); 
+                    <div src={school.image_url} onClick={() => {store.dispatch(chooseService(school.id)); 
                       setServiceId(school.id)}}
                     key={school.id} value={school.id} className="services"id={`${school.name}`}>{school.name}</div >
                   )}
@@ -75,38 +84,39 @@ function SchoolPage({setLoginShow,loginShow,user,onLogin,setUsername,setPassword
             </div>
           )
         }
-        else if (state.schools.serviceCategoryPick.length < 1){
+        else if (state.schools.serviceCategoryId.length < 1){
+          const filteredCategories = state.schools.serviceCategoryList.filter(userService=>(
+            userService.service_id === parseInt(serviceId)
+            ))
+            console.log("serviceId", serviceId)
+            console.log("filteredCat", filteredCategories)
+
           return (
           <div>
               <h1>Please Choose a Category</h1>
               <div className="schools-container">
                     {filteredCategories.map((school) => 
-                      <div onClick={() => {store.dispatch(chooseServiceCategory(school.name)); setSelectedSchool("hi")}}
+                      <div onClick={() => {store.dispatch(chooseServiceCategory(school.id)); setSelectedSchool("hi")}}
                       key={school.id}  className="category">{school.name}</div>
                     )}
                 </div>
             </div>
           )
-        } 
+        } else {
+          query()
+        }
       }
 
     return(
         <div className="schoolPage" style={{overflowX: "hidden"}}>
             <HomeBanner onLogin={onLogin} user={user} setUsername={setUsername} setPassword={setPassword} username={username} password={password} setLoginShow={setLoginShow} loginShow={loginShow} title="ALL SCHOOLS"/>
               <div className="colleges-center">
-                <div id="sort-bar"></div>
+                {/* <div id="sort-bar"></div> */}
                 <div id="school-render">
-                      {selectedSchool? renderSchools(storeState) : handleSchoolSearch(storeState)}
+                      {servicesArray? renderSchools(servicesArray) : handleSchoolSearch(storeState)}
                 </div>
               </div>
         </div>
     )
 }
 export default SchoolPage
-
-// {searchFilter.map(school=>(
-//                <div className="collegeContainers">
-//                 <a href={`/schools/${school.name}`}><img src={school.image_url} alt={school.name} key={school.id}/></a>
-//               {console.log('ive been fetched')}
-//               </div>
-//               ))}
